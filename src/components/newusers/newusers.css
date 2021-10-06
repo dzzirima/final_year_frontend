@@ -1,0 +1,92 @@
+.newUser{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+
+}
+.newUserform{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.newUserItem{
+    /* make sure here to mantain 2 things per row */
+    width: 470px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.newUserPassword{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* justify-content:space-evenly; */
+    /* width:  470px */
+}
+
+.newUserItem>label{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: gray;
+}
+
+.newUserItem>input{
+    height: 20px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.password{
+    display: flex;
+    flex-direction: row;
+}
+.newUserGender>input{
+
+    margin-top: 15px;
+
+}
+.newUserGender>label{
+    margin: 10px;
+    font-size: 18px;
+    color:#555
+}
+.newUserSelect{
+    height: 40px;
+    border-radius: 5px;
+
+}
+/* .newUserButton{
+    width: 200px;
+    border: none;
+    background-color: darkblue;
+    color: white;
+    padding :7px 10px;
+    border-left: 100px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+} */
+
+.userButton{
+    /* width: 40%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* color: cornflowerblue; */
+}
+
+/* magic when dealing with classes use the  deburging toools */
+/* .userButton>button{
+    color:cornflowerblue;
+    background-color: crimson;
+} */
