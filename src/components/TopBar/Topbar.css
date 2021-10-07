@@ -1,0 +1,101 @@
+.logoimg{
+    margin-top: 5px;
+}
+
+img{
+    height: 83px;
+    width: 140px;
+    margin-top: 3px;
+    border-radius: 1px;
+    position: relative;
+    background-color: whitesmoke;
+    /* padding: 5px; */
+    border:1px solid white
+
+}
+
+
+.topbar{
+    width: 100%;
+    height: 70px;
+    background-color:#3F51B5;
+    position: sticky;
+    top: 1px;
+    z-index: 999;
+    border-bottom: 1px solid green;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.topbarWrapper{
+    height: 100%;
+    padding: 0px 20px;
+    align-items: center;
+    color:#d6dbe9;
+    display: flex;
+    justify-content: space-between;
+
+}
+.logo{
+    font-weight: bold;
+    font-size: 30px;
+    margin:0px;
+    /* color:darkblue; */
+    cursor: pointer;
+}
+.logotext{
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    padding-left: 5px;
+}
+.topLeft{
+    color:white;
+    display: flex;
+    flex-direction: row;
+}
+
+.topCenter{
+    text-decoration: none;
+    display: flex;
+    color: white;
+
+}
+.topCenter>a{
+    text-decoration: none;
+    margin-left: 10px;
+}
+.topCenter>a:visited{
+    color: rgb(26, 24, 24) !important;
+    /* border: 1px solid blue; */
+}
+.topCenter>a:active{
+    border-bottom: 2px solid rgb(67, 95, 218);
+
+}
+.topCenter>a:hover{
+    border-bottom: 2px solid rgb(67, 95, 218);
+
+}
+.topCenterFlex{
+    display: flex;
+    
+
+}
+
+.topCenterActive{
+    border-bottom: 1px solid royalblue;
+    font-weight: 600;
+    color: white;
+}
+
+.topRight{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
