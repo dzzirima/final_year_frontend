@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Uers = () => {
+const Users = () => {
     return (
         <div>
-            This is the users page
+            
         </div>
     )
 }
 
-export default Uers
+export default Users
+
