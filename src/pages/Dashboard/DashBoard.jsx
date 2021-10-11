@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Summary from '../../components/Summary/Summary'
+import TicketsTable from '../../components/TicketsTable/TicketsTable'
 import './index.css'
 
 const DashBoard = () => {
@@ -13,6 +14,10 @@ const DashBoard = () => {
             <Summary name = "Total" value = {35}/>
             </div>
             <div className="tableDiv"> This is the table </div>
+
+            <div>
+                <TicketsTable/>
+            </div>
             
         </div>
     )
