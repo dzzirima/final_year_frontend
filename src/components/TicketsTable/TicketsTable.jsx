@@ -1,6 +1,7 @@
 import React from "react";
 // import MaterialTable from 'material-table'
 import MUIDataTable from "mui-datatables";
+import './index.css'
 
 import { TicketColumns } from "../../services/TableColumn";
 import { tableOptions } from "../../services/TableColumn";

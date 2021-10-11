@@ -1,0 +1,21 @@
+
+
+/* classes for the status of the ticket  */
+.new{
+    color:#F55D30
+}
+.inprogress{
+    color:#F5C330
+}
+
+.resolved{
+    color:#77D970
+
+}
+
+/* customising the button */
+a{
+    text-decoration:none
+}
+
+

@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 // option for all the table in the applications
 export const tableOptions  = {
@@ -56,10 +56,16 @@ export const tableOptions  = {
       print: true,
       options: {
         filter: true,
-        print: true,
-        sort: false,
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => (
+          <>
+            <p className={value}>{value}</p>
+          </>
+        ),
       },
     },
+
+
     {
       name: "type",
       label: "Type",
@@ -97,9 +103,14 @@ export const tableOptions  = {
         sort: false,
         customBodyRender: (value, tableMeta, updateValue) => (
           <>
-            <Link to={"/driver/" + value}>
+            <Link to={"/ticket/" + value}>
               <Button color = "primary" variant="outlined" startIcon={<RemoveRedEyeIcon />}>
                 View
+              </Button>
+            </Link>
+            <Link to={"/ticket/" + value}>
+              <Button  sx ={{mx: 0.5,}} color = "primary" variant="outlined" startIcon={<AssignmentIcon/>}>
+                Assign
               </Button>
             </Link>
           </>

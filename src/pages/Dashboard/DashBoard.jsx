@@ -1,3 +1,4 @@
+import { Divider, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Summary from '../../components/Summary/Summary'
 import TicketsTable from '../../components/TicketsTable/TicketsTable'
@@ -13,8 +14,7 @@ const DashBoard = () => {
             <Summary name= "Resolved" value = {20}/>
             <Summary name = "Total" value = {35}/>
             </div>
-            <div className="tableDiv"> This is the table </div>
-
+            <Divider sx ={{my:2}}>  <Typography variant ="subtitle1">  Newly  Created Tickets </Typography>  </Divider>
             <div>
                 <TicketsTable/>
             </div>

@@ -11,7 +11,7 @@ export default function Summary({name,value}) {
         bgcolor: 'background.paper',
         boxShadow: 1,
         borderRadius: 1,
-        p: 2,
+        p: 1,
         minWidth: 300,
       }}
     >

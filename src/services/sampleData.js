@@ -14,7 +14,7 @@ export const sampleTickets = [
         dateResolved:"25/09/2021 :20:21",
         ticketId:"TK4556SRP",
         status:"inprogress",
-        type:"complaint",
+        type:"incident",
         subject:"Printer failing to print",
         asignedTo:"Nyasha Mashumba",
 
