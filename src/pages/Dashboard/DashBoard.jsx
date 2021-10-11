@@ -7,10 +7,10 @@ const DashBoard = () => {
     return (
         <div className = "mainDashBoard">
             <div className="mainSummaryContainer"> 
-            <Summary/>
-            <Summary/>
-            <Summary/>
-            <Summary/>
+            <Summary name = "New Tickets" value ={5} />
+            <Summary name = "In Progress"  value = {10}/>
+            <Summary name= "Resolved" value = {20}/>
+            <Summary name = "Total" value = {35}/>
             </div>
             <div className="tableDiv"> This is the table </div>
             

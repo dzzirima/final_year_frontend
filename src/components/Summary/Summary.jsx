@@ -1,9 +1,11 @@
 import * as React from 'react';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { Box } from '@mui/system';
+import { Paper } from '@mui/material';
 
-export default function Summary() {
+export default function Summary({name,value}) {
   return (
+    <Paper>
     <Box
       sx={{
         bgcolor: 'background.paper',
@@ -13,9 +15,9 @@ export default function Summary() {
         minWidth: 300,
       }}
     >
-      <Box sx={{ color: 'text.secondary' }}>Sessions</Box>
+      <Box sx={{ color: 'text.secondary' }}>{name}</Box>
       <Box sx={{ color: 'text.primary', fontSize: 34, fontWeight: 'medium' }}>
-        98.3 K
+        {value}
       </Box>
       <TrendingUpIcon
         sx={{ color: 'success.dark', fontSize: 16, verticalAlign: 'sub' }}
@@ -34,5 +36,6 @@ export default function Summary() {
         vs. last week
       </Box>
     </Box>
+    </Paper>
   );
 }
