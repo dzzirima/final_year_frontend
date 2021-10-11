@@ -1,0 +1,15 @@
+.mainDashBoard{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainSummaryContainer{
+    border: 2px dotted #a250ff;
+background: #ffffff;
+
+    display: flex;
+    flex-direction: row;
+    box-shadow: -1px 10px 15px -3px rgba(51,95,234,0.68);
+-webkit-box-shadow: -1px 10px 15px -3px rgba(51,95,234,0.68);
+-moz-box-shadow: -1px 10px 15px -3px rgba(51,95,234,0.68);
+}

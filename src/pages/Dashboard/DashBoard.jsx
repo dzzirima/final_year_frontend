@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Summary from '../../components/Summary/Summary'
+import './index.css'
 
 const DashBoard = () => {
+    const [cost, setcost] = useState(0)
     return (
-        <div>
-            This is the dash board
+        <div className = "mainDashBoard">
+            <div className="mainSummaryContainer"> 
+            <Summary/>
+            <Summary/>
+            <Summary/>
+            <Summary/>
+            </div>
+            <div className="tableDiv"> This is the table </div>
             
         </div>
     )
