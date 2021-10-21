@@ -31,3 +31,20 @@ export const sampleTickets = [
     }
     
 ]
+
+export const sampleUsers = [
+    {
+        firstName:"Nyasha",
+        lastName:"Nyasha",
+        phone:"+263785 395 827",
+        email:"nyasham@gmail.com",
+        role:"admin"
+    },
+    {
+        firstName:"Munya",
+        lastName:"Munya",
+        phone:"+263785 395 827",
+        email:"nyasham@gmail.com",
+        role:"technician"
+    }
+]

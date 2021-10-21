@@ -42,8 +42,8 @@ const TopBar = () => {
           <div className={active === "tickets" ? "topCenterActive" : undefined}>
             <ListItem
               button
-            //   component={Link}
-              to="/tickets"
+              component={Link}
+              to="/"
               id="tickets"
               onClick={changeActivePage}
             >
@@ -56,7 +56,7 @@ const TopBar = () => {
           >
             <ListItem
               button
-            //   component={Link}
+              component={Link}
               id="users"
               to="/users"
               onClick={changeActivePage}
@@ -69,7 +69,7 @@ const TopBar = () => {
             <ListItem
               button
               id="settings"
-            //   component={Link}
+              component={Link}
               to="/settings"
               onClick={changeActivePage}
             >

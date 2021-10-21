@@ -129,3 +129,72 @@ export const tableOptions  = {
       },
     },
   ];
+// ....................................................................user columns............................
+  export const UserColumns = [
+    {
+      name: "firstName",
+      label: "First Name",
+      print: true,
+      options: {
+        filter: true,
+        sort: true,
+      },
+    },
+  
+    {
+      name: "lastName",
+      label: "Last NAme",
+      print: true,
+      options: {
+        filter: true,
+        print: true,
+        sort: false,
+      },
+    },
+    {
+      name: "phone",
+      label: "Phone",
+      print: true,
+      options: {
+        filter: true,
+        print: true,
+        sort: false,
+      },
+    },
+    {
+      name: "email",
+      label: "Email",
+      print: true,
+      options: {
+        filter: true,
+        print: true,
+        sort: false,
+      },
+    },
+    // {
+    //   name: "status",
+    //   label: "Status",
+    //   print: true,
+    //   options: {
+    //     filter: true,
+    //     sort: true,
+    //     customBodyRender: (value, tableMeta, updateValue) => (
+    //       <>
+    //         <p className={value}>{value}</p>
+    //       </>
+    //     ),
+    //   },
+    // },
+
+
+    {
+      name: "role",
+      label: "Role",
+      print: true,
+      options: {
+        filter: true,
+        sort: false,
+      },
+    },
+    
+  ];
