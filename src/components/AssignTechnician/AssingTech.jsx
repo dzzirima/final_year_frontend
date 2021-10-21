@@ -11,9 +11,10 @@ import Select from "react-select";
 import './index.css'
 
 const users = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
+  { value: "John", label: "John" },
+  { value: "Praise", label: "Praise" },
+  { value: "Nyasha", label: "Nyasha" },
+  { value: "Munya", label: "Munya" },
 ];
 
 const AssingTech = () => {
@@ -51,7 +52,7 @@ const AssingTech = () => {
             <div className = "selectMaincontainer">
             <Select
               id="select_user"
-              placeholder="Select User"
+              placeholder="Select Technician"
               name="clientId"
               className="myField"
               onChange={handleSearchChange}
