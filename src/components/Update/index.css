@@ -1,0 +1,9 @@
+.mainUpDateConatiner{
+    display: flex;
+}
+
+.statusContainer{
+    
+    /* width: 10px; */
+    border:  none
+}

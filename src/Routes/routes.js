@@ -1,3 +1,4 @@
+import TicketDetails from "../components/TicketDetails/TicketDetails";
 import DashBoard from "../pages/Dashboard/DashBoard";
 import Settings from "../pages/Settings/Settings";
 import Tickets from "../pages/Tickets/Tickets";
@@ -22,6 +23,11 @@ export   const routes = [
       {
         path: "/users",
         component:<Users/>
+        
+      },
+      {
+        path: "/ticket/:ticketId",
+        component:<TicketDetails/>
         
       },
     

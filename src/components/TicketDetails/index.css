@@ -1,0 +1,89 @@
+.mainDetailConatiner{
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    height: 80vh;
+    justify-content: space-between;
+    padding: 2px;
+}
+
+.addCommentButton{
+    padding: 10px;
+    font-size: 16px;
+    background-color:#B2F9FC;
+    border-radius: 10px;
+    border: 1px none #ff6550;
+}
+.ticketTitle{
+    text-align: start;
+}
+.ticketNumber{
+    font-weight: 400;
+    color:#B99A8B
+}
+.ticketCurrentStatus{
+    text-align: start;
+
+}
+
+.leftContainer{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 60%;
+    padding-right: 30px;
+   
+
+}
+.rightContainer{
+    /* width: 500px; */
+    flex-grow: 1;
+    /* border: 2px dotted #5079ff; */
+    border-radius:2px;
+    padding: 2px;
+    width: 40%;
+    height: fit-content;
+}
+
+
+/* css for the cards */
+.scrollable{
+    border-radius: 5px;
+    overflow-y: auto;
+    margin: 10px;
+    padding: 20px;
+    border-top: 3px dotted rgb(138, 134, 141);
+    border-bottom: 3px dotted rgb(138, 134, 141);
+    border-left: 3px dotted rgb(138, 134, 141)
+}
+
+
+/* csss for task content */
+.taskMainContainer{
+    text-align: justify;
+    padding: 2px;
+}
+.taskTitleNameContainer{
+    display: flex;
+    align-items: baseline;
+}
+
+/* adding the continuous border */
+.boxDivider{
+    /* border-left: 1px solid #505857; */
+    background-color: rgb(138, 134, 141);
+}
+
+/* css for the right right  side Ticket Details */
+.ticketItemContainer{
+    display: flex;
+    /* align-items: baseline; */
+    flex-direction: row; 
+    text-align: justify;
+}
+.ticketItemTitle{
+    width: 100px;
+    font-weight: 900;
+    font-weight: bolder;
+}
+
