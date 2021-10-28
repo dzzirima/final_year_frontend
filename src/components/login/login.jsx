@@ -15,6 +15,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import loginimage from '../../images/pik.PNG';
 import BaseURL from '../../services/Axios';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -29,7 +32,8 @@ function Copyright(props) {
 }
 
 const theme = createTheme();
-
+const loginSuccess = () => toast("Login SuccessFully !!!");
+const loginFailed = () => toast("Login Failed ");
 export default function SignInSide() {
 
   const handleSubmit =  async(event) => {
@@ -47,14 +51,18 @@ export default function SignInSide() {
        emailAddress:data.get('email'),
        password:data.get('password')
       })
+      console.log(loginResponce)
 
       if(loginResponce.data.message === "SUCCESS"){
-        console.log("login SuccessFully")
+        loginSuccess()
       }else{
-        console.log("check Your details")
+        // handle front end errors
+        
       }
    
     } catch (error) {
+      toast(`Login Failed Please Check Your Credentials`);
+      
       
     }
   };
@@ -144,6 +152,7 @@ export default function SignInSide() {
             </Box>
           </Box>
         </Grid>
+        <ToastContainer />
       </Grid>
     </ThemeProvider>
   );
