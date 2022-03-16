@@ -118,14 +118,28 @@ export const tableOptions  = {
 
     {
       name: "recordId",
-      label: "Action",
+      label: "Access",
       print: false,
       options: {
         filter: false,
         sort: false,
         customBodyRender: (value, tableMeta, updateValue) => (
           <div>
-              <AssingTech options={myoptions}/>
+              <AssingTech options={myoptions} title = {"Grant"}/>
+          </div>
+        ),
+      },
+    },
+    {
+      name: "recordId",
+      label: "Acess",
+      print: false,
+      options: {
+        filter: false,
+        sort: false,
+        customBodyRender: (value, tableMeta, updateValue) => (
+          <div>
+              <AssingTech options={myoptions}  title = {"Revoke"} />
           </div>
         ),
       },

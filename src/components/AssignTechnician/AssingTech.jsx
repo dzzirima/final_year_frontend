@@ -12,7 +12,7 @@ import './index.css'
 
 
 
-const AssingTech = ({options}) => {
+const AssingTech = ({options ,title}) => {
   const [formData, setFormData] = useState({});
 
   const handleSearchChange = (e) => {
@@ -35,13 +35,13 @@ const AssingTech = ({options}) => {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>Share With</Button>
+      <Button onClick={handleClickOpen}>{title}</Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title"> Share With Prescriber</DialogTitle>
+        <DialogTitle id="form-dialog-title">{`${title} Access`} </DialogTitle>
         <form onSubmit={handleSubmit}>
           <DialogContent>
             <div className = "selectMaincontainer">

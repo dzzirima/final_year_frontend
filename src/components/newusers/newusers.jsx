@@ -125,17 +125,17 @@ function  NewUser(){
               <FormControlLabel
                 value="admin"
                 control={<Radio />}
-                label="Admin"
+                label="doctor"
               />
               <FormControlLabel
                 value="technician"
                 control={<Radio />}
-                label="Technician"
+                label="patient"
               />
               <FormControlLabel
                 value="client"
                 control={<Radio />}
-                label="Client"
+                label="pharmacist"
               />
             
             </RadioGroup>
