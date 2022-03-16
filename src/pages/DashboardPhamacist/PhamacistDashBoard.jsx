@@ -5,6 +5,9 @@ import TicketsTable from "../../components/TicketsTable/TicketsTable";
 import "./index.css";
 import SecurityIcon from "@mui/icons-material/Security";
 
+import { pharmacistColumns as columns } from "../../services/TableColumn";
+import { sampleTickets as data } from "../../services/sampleData";
+
 const PhamacistDashBoard = () => {
   const [cost, setcost] = useState(0);
   return (
@@ -25,7 +28,7 @@ const PhamacistDashBoard = () => {
         </Typography>{" "}
       </Divider>
       <div>
-        <TicketsTable />
+        <TicketsTable columns={columns}  data ={data} title ="Your Patients Prescriptions Recent Activity"/>
       </div>
     </div>
   );
