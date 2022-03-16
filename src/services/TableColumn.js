@@ -22,8 +22,8 @@ export const tableOptions  = {
  
  export const TicketColumns = [
     {
-      name: "dateReported",
-      label: "Report Date",
+      name: "prescribedDate",
+      label: "Prescibed Date",
       print: true,
       options: {
         filter: true,
@@ -32,8 +32,8 @@ export const tableOptions  = {
     },
   
     {
-      name: "dateResolved",
-      label: "Resolved Date",
+      name: "dateCollected",
+      label: "Collected Date",
       print: true,
       options: {
         filter: true,
@@ -42,8 +42,8 @@ export const tableOptions  = {
       },
     },
     {
-      name: "ticketId",
-      label: "Ticket ID",
+      name: "recordID",
+      label: "Record ID",
       print: true,
       options: {
         filter: true,
@@ -53,7 +53,7 @@ export const tableOptions  = {
     },
     {
       name: "status",
-      label: "Status",
+      label: "Sharing status",
       print: true,
       options: {
         filter: true,
@@ -86,8 +86,8 @@ export const tableOptions  = {
       },
     },
     {
-      name: "asignedTo",
-      label: "Assigned To",
+      name: "prescribedBy",
+      label: "Prescribed By",
       print: true,
       options: {
         filter: true,
@@ -96,7 +96,7 @@ export const tableOptions  = {
     },
 
     {
-      name: "ticketId",
+      name: "recordId",
       label: "Action",
       print: false,
       options: {
@@ -115,7 +115,7 @@ export const tableOptions  = {
     },
 
     {
-      name: "ticketId",
+      name: "recordId",
       label: "Action",
       print: false,
       options: {

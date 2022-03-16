@@ -11,6 +11,7 @@ import {
   ListItem,
   Typography,
 } from "@material-ui/core";
+import { Tooltip } from "@mui/material";
 // import Balance from "../../Balance/Balance";
 // import { axiosInstance } from "../../../services/axios";
 
@@ -29,13 +30,15 @@ const TopBar = () => {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <div className = "logoimg">
-          <span>{<img src={logo} />} </span>
-          </div>
+        <Typography
+            variant="h6"
+            color="inherit"
+            noWrap
+            sx={{ flexGrow: 1, textAlign: "left" }}
+          >
+            MedAcess ~ Accessible Medical Records
+          </Typography>
           
-          <div className = "logotext">
-            <span>icedTechnologies</span>
-          </div>
         </div>
 
         <div className="topCenterFlex">
@@ -47,13 +50,14 @@ const TopBar = () => {
               id="tickets"
               onClick={changeActivePage}
             >
-              TICKETS
+              Records
             </ListItem>
           </div>
 
           <div
             className={active === "users" ? "topCenterActive" : undefined}
           >
+            <Tooltip title="All Doctors and Phamarcists with access to your Records">
             <ListItem
               button
               component={Link}
@@ -61,8 +65,9 @@ const TopBar = () => {
               to="/users"
               onClick={changeActivePage}
             >
-              USERS
+              Shared Presscribers
             </ListItem>
+            </Tooltip>
           </div>
 
           <div className={active === "settings" ? "topCenterActive" : undefined}>

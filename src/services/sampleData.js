@@ -1,32 +1,32 @@
 export const sampleTickets = [
     {
-        dateReported:"25/09/2021 :20:21",
-        dateResolved:"25/09/2021 :20:21",
-        ticketId:"TK4556SRP",
+        prescribedDate:"25/09/2021 :20:21",
+        dateCollected:"25/09/2021 :20:21",
+        recordID:"TK4556SRP",
         status:"new",
-        type:"complaint",
-        subject:"Printer failing to print",
-        asignedTo:"Nyasha Mashumba",
+        type:"dose",
+        subject:"500ml of ganja everyday",
+        prescribedBy:"DR.C.K Gafa",
 
     },
     {
-        dateReported:"25/09/2021 :20:21",
-        dateResolved:"25/09/2021 :20:21",
-        ticketId:"TK4556SRP",
+        prescribedDate:"25/09/2021 :20:21",
+        dateCollected:"25/09/2021 :20:21",
+        recordID:"TK4556SRP",
         status:"inprogress",
-        type:"incident",
-        subject:"Printer failing to print",
-        asignedTo:"Nyasha Mashumba",
+        type:"injection",
+        subject:"1 per week for 12 weeks",
+        prescribedBy:"Dr Bob Marley",
 
     },
     {
-        dateReported:"25/09/2021 :20:21",
-        dateResolved:"25/09/2021 :20:21",
-        ticketId:"TK4556SRP",
+        prescribedDate:"25/09/2021 :20:21",
+        dateCollected:"25/09/2021 :20:21",
+        recordID:"TK4556SRP",
         status:"resolved",
-        type:"complaint",
-        subject:"Printer failing to print",
-        asignedTo:"Nyasha Mashumba",
+        type:"tablets",
+        subject:"Take 2 After aeying for 7 days",
+        prescribedBy:"Pham Marcus Gavey",
 
     }
     
@@ -34,17 +34,17 @@ export const sampleTickets = [
 
 export const sampleUsers = [
     {
-        firstName:"Nyasha",
-        lastName:"Nyasha",
+        firstName:"peter",
+        lastName:"Tosh",
         phone:"+263785 395 827",
-        email:"nyasham@gmail.com",
-        role:"admin"
+        email:"peter@gmail.com",
+        role:"doctor"
     },
     {
-        firstName:"Munya",
-        lastName:"Munya",
+        firstName:"Culture",
+        lastName:"The Ist",
         phone:"+263785 395 827",
-        email:"nyasham@gmail.com",
-        role:"technician"
+        email:"tosh@gmail.com",
+        role:"phamacist"
     }
 ]

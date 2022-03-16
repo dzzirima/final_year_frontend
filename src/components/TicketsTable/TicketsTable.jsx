@@ -19,7 +19,7 @@ const TicketsTable = () => {
     <div>
       <div style={{ maxWidth: "100%" }}>
         <MUIDataTable
-          title={"Newly Created Tickets"}
+          title={"Nearly Created Medical Records"}
           data={sampleTickets}
           columns={TicketColumns}
           options={tableOptions}

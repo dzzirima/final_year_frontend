@@ -5,11 +5,12 @@ import TicketsTable from "../../components/TicketsTable/TicketsTable";
 import "./index.css";
 import SecurityIcon from "@mui/icons-material/Security";
 
-const DashBoard = () => {
+const DoctorDashBoard = () => {
   const [cost, setcost] = useState(0);
   return (
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
+      <Summary name="Good Morning Doctor Ganja" />
         <Summary name="Newly Created Records" value={5} />
         <Summary name="Shared Records" value={10} />
         <Summary name="Not Shared Records" value={20} />
@@ -19,7 +20,7 @@ const DashBoard = () => {
         {" "}
         <Typography variant="subtitle1">
           {" "}
-          <SecurityIcon color="primary" /> Secure your Medical Records{" "}
+          <SecurityIcon color="primary" /> Share Medical Records Securely {" "}
           <SecurityIcon color="primary" />{" "}
         </Typography>{" "}
       </Divider>
@@ -30,4 +31,4 @@ const DashBoard = () => {
   );
 };
 
-export default DashBoard;
+export default DoctorDashBoard;

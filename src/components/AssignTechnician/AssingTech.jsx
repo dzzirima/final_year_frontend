@@ -40,19 +40,19 @@ const AssingTech = () => {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>Assign</Button>
+      <Button onClick={handleClickOpen}>Share With</Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title"> Assign new Technician</DialogTitle>
+        <DialogTitle id="form-dialog-title"> Share With Prescriber</DialogTitle>
         <form onSubmit={handleSubmit}>
           <DialogContent>
             <div className = "selectMaincontainer">
             <Select
               id="select_user"
-              placeholder="Select Technician"
+              placeholder="Select Prescriber"
               name="clientId"
               className="myField"
               onChange={handleSearchChange}

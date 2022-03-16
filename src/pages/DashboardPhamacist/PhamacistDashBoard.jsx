@@ -5,11 +5,12 @@ import TicketsTable from "../../components/TicketsTable/TicketsTable";
 import "./index.css";
 import SecurityIcon from "@mui/icons-material/Security";
 
-const DashBoard = () => {
+const PhamacistDashBoard = () => {
   const [cost, setcost] = useState(0);
   return (
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
+      <Summary name="Hie Phamacist Gafa" value={35} />
         <Summary name="Newly Created Records" value={5} />
         <Summary name="Shared Records" value={10} />
         <Summary name="Not Shared Records" value={20} />
@@ -30,4 +31,4 @@ const DashBoard = () => {
   );
 };
 
-export default DashBoard;
+export default PhamacistDashBoard;
