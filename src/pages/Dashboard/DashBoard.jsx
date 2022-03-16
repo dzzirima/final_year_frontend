@@ -4,12 +4,16 @@ import Summary from "../../components/Summary/Summary";
 import TicketsTable from "../../components/TicketsTable/TicketsTable";
 import "./index.css";
 import SecurityIcon from "@mui/icons-material/Security";
+import { TicketColumns as columns } from "../../services/TableColumn";
+import { sampleTickets as data } from "../../services/sampleData";
+import Greetings from "../../components/Greetings/Greetings";
 
 const DashBoard = () => {
   const [cost, setcost] = useState(0);
   return (
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
+        <Greetings message={"Good Morning"} userName ={"Dr Peter Tosh"}/>
         <Summary name="Newly Created Records" value={5} />
         <Summary name="Shared Records" value={10} />
         <Summary name="Not Shared Records" value={20} />
@@ -24,7 +28,7 @@ const DashBoard = () => {
         </Typography>{" "}
       </Divider>
       <div>
-        <TicketsTable />
+        <TicketsTable columns ={columns}  data = {data} title ="Newly Created Medical Records" />
       </div>
     </div>
   );

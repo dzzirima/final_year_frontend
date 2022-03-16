@@ -5,6 +5,8 @@ import TicketsTable from "../../components/TicketsTable/TicketsTable";
 import "./index.css";
 import SecurityIcon from "@mui/icons-material/Security";
 
+import { TicketColumns as columns } from "../../services/TableColumn";
+
 const DoctorDashBoard = () => {
   const [cost, setcost] = useState(0);
   return (
@@ -25,7 +27,7 @@ const DoctorDashBoard = () => {
         </Typography>{" "}
       </Divider>
       <div>
-        <TicketsTable />
+        <TicketsTable columns={columns} />
       </div>
     </div>
   );

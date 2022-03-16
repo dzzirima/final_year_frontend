@@ -3,7 +3,7 @@ import React from "react";
 import MUIDataTable from "mui-datatables";
 import './index.css'
 
-import { TicketColumns } from "../../services/TableColumn";
+
 import { tableOptions } from "../../services/TableColumn";
 import { sampleTickets } from "../../services/sampleData";
 
@@ -14,14 +14,14 @@ const data = [
   ["James Houston", "Test Corp", "Dallas", "TX"],
 ];
 
-const TicketsTable = () => {
+const TicketsTable = ({title,data,columns}) => {
   return (
     <div>
       <div style={{ maxWidth: "100%" }}>
         <MUIDataTable
-          title={"Nearly Created Medical Records"}
-          data={sampleTickets}
-          columns={TicketColumns}
+          title={title}
+          data={data}
+          columns={columns}
           options={tableOptions}
         />
       </div>
