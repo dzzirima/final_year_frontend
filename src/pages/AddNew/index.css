@@ -1,0 +1,9 @@
+.mainUserContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.topUserContainer{
+    align-items: flex-start;
+    justify-content: flex-start;
+}

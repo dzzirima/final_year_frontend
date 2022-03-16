@@ -48,3 +48,10 @@ export const sampleUsers = [
         role:"phamacist"
     }
 ]
+
+export const users = [
+    { value: "John", label: "John" },
+    { value: "Praise", label: "Praise" },
+    { value: "Nyasha", label: "Nyasha" },
+    { value: "Munya", label: "Munya" },
+  ];

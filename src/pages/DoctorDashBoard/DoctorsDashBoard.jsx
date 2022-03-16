@@ -8,6 +8,7 @@ import SecurityIcon from "@mui/icons-material/Security";
 import { doctorColumns as columns } from "../../services/TableColumn";
 import { sampleTickets as data } from "../../services/sampleData";
 import Greetings from "../../components/Greetings/Greetings";
+import AddPrescription from "../AddNew/AddPrescription";
 
 const DoctorDashBoard = () => {
   const [cost, setcost] = useState(0);
@@ -15,15 +16,18 @@ const DoctorDashBoard = () => {
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
       <Greetings message={"Good Morning"} userName ={"DR .Peter Tosh"}/>
+      <AddPrescription/>
         <Summary name="Newly Created Records" value={5} />
         <Summary name="Shared with You" value={10} />
         <Summary name="Pending Approve" value={20} />
-        <Summary name="Total" value={35} />
+        
+        
       </div>
       <Divider sx={{ my: 2 }}>
         {" "}
         <Typography variant="subtitle1">
           {" "}
+       
           <SecurityIcon color="primary" /> Share Medical Records Securely {" "}
           <SecurityIcon color="primary" />{" "}
         </Typography>{" "}

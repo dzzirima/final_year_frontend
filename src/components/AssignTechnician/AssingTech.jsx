@@ -10,14 +10,9 @@ import React, { useState } from "react";
 import Select from "react-select";
 import './index.css'
 
-const users = [
-  { value: "John", label: "John" },
-  { value: "Praise", label: "Praise" },
-  { value: "Nyasha", label: "Nyasha" },
-  { value: "Munya", label: "Munya" },
-];
 
-const AssingTech = () => {
+
+const AssingTech = ({options}) => {
   const [formData, setFormData] = useState({});
 
   const handleSearchChange = (e) => {
@@ -56,7 +51,7 @@ const AssingTech = () => {
               name="clientId"
               className="myField"
               onChange={handleSearchChange}
-              options={users}
+              options={options}
             />
             </div>
           </DialogContent>

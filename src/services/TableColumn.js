@@ -4,6 +4,7 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AssingTech from "../components/AssignTechnician/AssingTech";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { users as myoptions } from "./sampleData";
 
 // option for all the table in the applications
 export const tableOptions  = {
@@ -124,7 +125,7 @@ export const tableOptions  = {
         sort: false,
         customBodyRender: (value, tableMeta, updateValue) => (
           <div>
-              <AssingTech/>
+              <AssingTech options={myoptions}/>
           </div>
         ),
       },
