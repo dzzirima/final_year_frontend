@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import loginimage from '../../images/pik.PNG';
+import loginimage from '../../images/MedAccess.png';
 import BaseURL from '../../services/Axios';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -22,8 +22,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        icedTechnologies
+      <Link color="inherit" href="#">
+        MedAcess
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
