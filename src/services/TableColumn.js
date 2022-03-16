@@ -198,3 +198,102 @@ export const tableOptions  = {
     },
     
   ];
+
+  /***Doctors Columns */
+  export const doctorColumns = [
+    {
+      name: "prescribedBy",
+      label: "Client Name",
+      print: true,
+      options: {
+        filter: true,
+        sort: true,
+      },
+    },
+    {
+      name: "prescribedDate",
+      label: "Prescibed Date",
+      print: true,
+      options: {
+        filter: true,
+        sort: true,
+      },
+    },
+  
+    {
+      name: "dateCollected",
+      label: "Collected Date",
+      print: true,
+      options: {
+        filter: true,
+        print: true,
+        sort: false,
+      },
+    },
+    {
+      name: "recordID",
+      label: "Record ID",
+      print: true,
+      options: {
+        filter: true,
+        print: true,
+        sort: false,
+      },
+    },
+    {
+      name: "status",
+      label: "Sharing status",
+      print: true,
+      options: {
+        filter: true,
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => (
+          <>
+            <p className={value}>{value}</p>
+          </>
+        ),
+      },
+    },
+
+
+    {
+      name: "type",
+      label: "Type",
+      print: true,
+      options: {
+        filter: true,
+        sort: false,
+      },
+    },
+    {
+      name: "subject",
+      label: "Subject",
+      print: true,
+      options: {
+        filter: true,
+        sort: false,
+      },
+    },
+   
+
+    {
+      name: "recordID",
+      label: "Action",
+      print: false,
+      options: {
+        filter: false,
+        sort: false,
+        customBodyRender: (value, tableMeta, updateValue) => (
+          <div>
+            <Link to={"/ticket/" + value}>
+              <Button color = "primary" variant="outlined" startIcon={<RemoveRedEyeIcon />}>
+                View
+              </Button>
+            </Link>
+          </div>
+        ),
+      },
+    },
+
+    
+  ];

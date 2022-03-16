@@ -13,7 +13,7 @@ const DashBoard = () => {
   return (
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
-        <Greetings message={"Good Morning"} userName ={"Dr Peter Tosh"}/>
+        <Greetings message={"Good Morning"} userName ={"Peter Tosh"}/>
         <Summary name="Newly Created Records" value={5} />
         <Summary name="Shared Records" value={10} />
         <Summary name="Not Shared Records" value={20} />
