@@ -1,3 +1,4 @@
+import SignInSide from "../components/login/login";
 import TicketDetails from "../components/TicketDetails/TicketDetails";
 import DashBoard from "../pages/Dashboard/DashBoard";
 import PhamacistDashBoard from "../pages/DashboardPhamacist/PhamacistDashBoard";
@@ -7,8 +8,13 @@ import Tickets from "../pages/Tickets/Tickets";
 import Users from "../pages/Users/Users";
 
 export   const routes = [
+  {
+    path: "/",
+    component:<SignInSide/>
+    
+  },
     {
-      path: "/",
+      path: "/patient",
       component:<DashBoard/>
       
     },
@@ -40,7 +46,6 @@ export   const routes = [
       {
         path: "/phamacist",
         component:<PhamacistDashBoard/>
-        
       },
     
   ];

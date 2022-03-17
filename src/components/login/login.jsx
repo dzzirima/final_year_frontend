@@ -49,7 +49,7 @@ export default function SignInSide() {
     // });
 
     // handling http Request
-    return history.push('/')
+    return history.push('/patient')
     try {
       let loginResponce = await  BaseURL.post('/api/v1/users/login/email', {
        emailAddress:data.get('email'),
