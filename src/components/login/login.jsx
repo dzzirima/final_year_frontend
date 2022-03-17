@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import loginimage from '../../images/MedAccess.png';
 import BaseURL from '../../services/Axios';
 
+import { useHistory } from "react-router-dom";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -35,6 +37,7 @@ const theme = createTheme();
 const loginSuccess = () => toast("Login SuccessFully !!!");
 const loginFailed = () => toast("Login Failed ");
 export default function SignInSide() {
+  let history = useHistory();
 
   const handleSubmit =  async(event) => {
     event.preventDefault();
@@ -46,6 +49,7 @@ export default function SignInSide() {
     // });
 
     // handling http Request
+    return history.push('/')
     try {
       let loginResponce = await  BaseURL.post('/api/v1/users/login/email', {
        emailAddress:data.get('email'),
