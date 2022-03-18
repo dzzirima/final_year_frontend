@@ -12,10 +12,14 @@ import {
   Typography,
 } from "@material-ui/core";
 import { Tooltip } from "@mui/material";
+import { useUserContext } from "../../context/userContext";
 // import Balance from "../../Balance/Balance";
 // import { axiosInstance } from "../../../services/axios";
 
 const TopBar = () => {
+  const { user, isGuest,logout } = useUserContext();
+  console.log(user);
+
   let refresher;
   const [active, setActivePage] = useState(false);
   const [update_balance, setupdate_balance] = useState(0);
@@ -25,12 +29,11 @@ const TopBar = () => {
     setActivePage(id);
   };
 
- 
   return (
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-        <Typography
+          <Typography
             variant="h6"
             color="inherit"
             noWrap
@@ -38,7 +41,6 @@ const TopBar = () => {
           >
             MedAcess ~ Accessible Medical Records
           </Typography>
-          
         </div>
 
         <div className="topCenterFlex">
@@ -54,23 +56,23 @@ const TopBar = () => {
             </ListItem>
           </div>
 
-          <div
-            className={active === "users" ? "topCenterActive" : undefined}
-          >
+          <div className={active === "users" ? "topCenterActive" : undefined}>
             <Tooltip title="All Doctors and Phamarcists with access to your Records">
-            <ListItem
-              button
-              component={Link}
-              id="users"
-              to="/users"
-              onClick={changeActivePage}
-            >
-              Shared Presscribers
-            </ListItem>
+              <ListItem
+                button
+                component={Link}
+                id="users"
+                to="/users"
+                onClick={changeActivePage}
+              >
+                Shared Presscribers {user.username}
+              </ListItem>
             </Tooltip>
           </div>
 
-          <div className={active === "settings" ? "topCenterActive" : undefined}>
+          <div
+            className={active === "settings" ? "topCenterActive" : undefined}
+          >
             <ListItem
               button
               id="settings"
@@ -82,19 +84,28 @@ const TopBar = () => {
             </ListItem>
           </div>
 
-          <div className={active === "toadd" ? "topCenterActive" : undefined}>
+          {!user.isGuest ? (
+            <div className={active === "toadd" ? "topCenterActive" : undefined}>
             <ListItem
               button
               id="toadd"
-            //   component={Link}
-              to="/toadd"
-              onClick={changeActivePage}
-            >
-              MORE
-            </ListItem>
+              component={Link}
+              to="/"
+            > LOGIN</ListItem>
           </div>
+            
+          ) : (
+            <div className={active === "toadd" ? "topCenterActive" : undefined}>
+              <ListItem
+                button
+                id="toadd"
+                component={Link}
+                to="/"
+                onClick={logout}
+              > LOGOUT</ListItem>
+            </div>
+          )}
         </div>
-        
 
         {/* <div className="topRight">
         

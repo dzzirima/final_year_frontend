@@ -19,6 +19,7 @@ import { useHistory } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useUserContext } from '../../context/userContext';
 
 function Copyright(props) {
   return (
@@ -37,7 +38,10 @@ const theme = createTheme();
 const loginSuccess = () => toast("Login SuccessFully !!!");
 const loginFailed = () => toast("Login Failed ");
 export default function SignInSide() {
+
+  const {login} = useUserContext()
   let history = useHistory();
+
 
   const handleSubmit =  async(event) => {
     event.preventDefault();
@@ -49,6 +53,8 @@ export default function SignInSide() {
     // });
 
     // handling http Request
+    console.log(data.get('email'))
+    login(data.get('email'))
     return history.push('/patient')
     try {
       let loginResponce = await  BaseURL.post('/api/v1/users/login/email', {
