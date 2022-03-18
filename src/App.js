@@ -5,14 +5,15 @@ import TopBar from "./components/TopBar/TopBar";
 import { routes } from "./Routes/routes";
 import { useLocation } from "react-router-dom";
 
-import { UserContextProvider } from "./context/userContext";
+import { UserContextProvider, useUserContext } from "./context/userContext";
 
 function App() {
+  const {user,loginStatus} = useUserContext()
   return (
     <UserContextProvider>
       <Router>
         <div className="App">
-          <TopBar />
+          {!loginStatus && <TopBar />}
           <Switch>
             {routes.map((route, index) => {
               return (

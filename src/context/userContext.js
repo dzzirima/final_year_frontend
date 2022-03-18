@@ -1,18 +1,20 @@
 //**This file will house all the user context of the application */
 
 import { createContext, useContext, useState } from "react";
+const USER = {
+    name:"Guest",
+    isGuest:true
+}
 
 export const userContext = createContext({
     /**we need to put initial state */
-    user:null,
+    user:USER,
     login:() =>{},
-    logout:() =>{}
+    logout:() =>{},
+    loginStatus:false
 })
 
-const USER = {
-    name:"Guest",
-    isGuestUser:true
-}
+
 
 /**passing down props to children */
 export function UserContextProvider({children}){
@@ -21,11 +23,13 @@ export function UserContextProvider({children}){
 
     /**defining specific functions for the user ie login and logout */
     function login(username){
-        setuser({isGuest:true ,name:username})
+        setuser({isGuest:false ,name:username ,loginStatus:true})
+        console.log(user)
     }
 
     function logout(){
         setuser(USER)
+        setuser({loginStatus:false})
     }
 
     return(
@@ -43,7 +47,7 @@ export function UserContextProvider({children}){
  */
 export function useUserContext(){
 
-    const {user,login,logout}  = useContext(userContext)
+    const {user,login,logout,loginStatus}  = useContext(userContext)
 
-    return {user,login,logout}
+    return {user,login,logout,loginStatus}
 }

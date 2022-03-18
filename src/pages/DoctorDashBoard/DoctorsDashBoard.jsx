@@ -9,13 +9,16 @@ import { doctorColumns as columns } from "../../services/TableColumn";
 import { sampleTickets as data } from "../../services/sampleData";
 import Greetings from "../../components/Greetings/Greetings";
 import AddPrescription from "../AddNew/AddPrescription";
+import { useUserContext } from "../../context/userContext";
+
 
 const DoctorDashBoard = () => {
   const [cost, setcost] = useState(0);
+  const{user} = useUserContext()
   return (
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
-      <Greetings message={"Good Morning"} userName ={"DR .Peter Tosh"}/>
+      <Greetings message={"Good Morning"} userName ={user.name}/>
       <AddPrescription/>
         <Summary name="Newly Created Records" value={5} />
         <Summary name="Shared with You" value={10} />

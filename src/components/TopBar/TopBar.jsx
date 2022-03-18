@@ -17,8 +17,8 @@ import { useUserContext } from "../../context/userContext";
 // import { axiosInstance } from "../../../services/axios";
 
 const TopBar = () => {
-  const { user, isGuest,logout } = useUserContext();
-  console.log(user);
+  const { user,logout,login } = useUserContext();
+  
 
   let refresher;
   const [active, setActivePage] = useState(false);
@@ -84,27 +84,18 @@ const TopBar = () => {
             </ListItem>
           </div>
 
-          {!user.isGuest ? (
+          {!user.isGuest && (
             <div className={active === "toadd" ? "topCenterActive" : undefined}>
             <ListItem
               button
               id="toadd"
               component={Link}
               to="/"
-            > LOGIN</ListItem>
+              onClick={login}
+            >  LOGOUT</ListItem>
           </div>
             
-          ) : (
-            <div className={active === "toadd" ? "topCenterActive" : undefined}>
-              <ListItem
-                button
-                id="toadd"
-                component={Link}
-                to="/"
-                onClick={logout}
-              > LOGOUT</ListItem>
-            </div>
-          )}
+          ) }
         </div>
 
         {/* <div className="topRight">
