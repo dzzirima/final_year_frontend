@@ -3,8 +3,11 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { Box } from '@mui/system';
 import { Paper } from '@mui/material';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import { useTime } from '../../CustomeHooks/useGeetings';
 
 export default function Greetings({message,userName}) {
+
+  const time = useTime()
   return (
     <Paper>
     <Box
@@ -16,7 +19,7 @@ export default function Greetings({message,userName}) {
         minWidth: 300,
       }}
     >
-      <Box sx={{ color: 'text.secondary' }}>{message}</Box>
+      <Box sx={{ color: 'text.secondary' }}> `Good {time} {message}`</Box>
 
       <Box sx={{ color: 'text.primary', fontSize: 28, fontWeight: 'medium' }}>
         {userName}

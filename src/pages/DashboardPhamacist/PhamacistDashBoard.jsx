@@ -16,7 +16,7 @@ const PhamacistDashBoard = () => {
   return (
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
-      <Greetings message={"Good Morning"} userName ={user.name}/>
+      <Greetings  userName ={user.name}/>
 
         <Summary name="Newly Created Records" value={5} />
         <Summary name="Shared Records" value={10} />

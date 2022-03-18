@@ -18,7 +18,7 @@ const DoctorDashBoard = () => {
   return (
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
-      <Greetings message={"Good Morning"} userName ={user.name}/>
+      <Greetings  userName ={user.name}/>
       <AddPrescription/>
         <Summary name="Newly Created Records" value={5} />
         <Summary name="Shared with You" value={10} />
