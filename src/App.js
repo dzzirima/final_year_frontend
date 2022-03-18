@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import TopBar from "./components/TopBar/TopBar";
 import { routes } from "./Routes/routes";
+import { useLocation } from "react-router-dom";
 
 function App() {
   return (
