@@ -42,11 +42,11 @@ const TicketDetails = () => {
       <div className="ticketTitle">
         <Typography variant="h4">
           
-          Printer Not Working <span className="ticketNumber">TK446687</span>
+          Headache <span className="ticketNumber">446687</span>
         </Typography>
       </div>
       <div className="ticketCurrentStatus">
-        <Typography> Nyasha Mashumba Opened This on:22/09/2021 </Typography>
+        <Typography> Dr Marley prescribed  This on:22/09/2021 </Typography>
       </div>
 
       <div className="mainDetailConatiner">
@@ -76,7 +76,7 @@ const TicketDetails = () => {
         </div>
         <div className="rightContainer">
           <Divider>
-            <Typography variant="subtitle1"> Ticket Details</Typography>
+            <Typography variant="subtitle1"> Prescription  Details</Typography>
           </Divider>
           <div className="ticketItemContainer">
             <div className="ticketItemTitle">
@@ -86,7 +86,7 @@ const TicketDetails = () => {
           </div>
           <div className="ticketItemContainer">
             <div className="ticketItemTitle">
-              <Typography variant>Ticket Number</Typography>
+              <Typography variant>Record Number</Typography>
             </div>
             <Box sx={{ m: 2 }}></Box> <Typography>TT55YU89</Typography>
           </div>
@@ -94,7 +94,7 @@ const TicketDetails = () => {
             <div className="ticketItemTitle">
               <Typography variant>Status</Typography>
             </div>
-            <Box sx={{ m: 2 }}></Box> <Typography>Pending</Typography>
+            <Box sx={{ m: 2 }}></Box> <Typography>shared</Typography>
           </div>
           <div className="ticketItemContainer">
             <div className="ticketItemTitle">
@@ -125,9 +125,9 @@ const TicketDetails = () => {
           </div>
           <div className="ticketItemContainer">
             <div className="ticketItemTitle">
-              <Typography variant>Assigned To</Typography>
+              <Typography variant>Prescribed By:</Typography>
             </div>
-            <Box sx={{ m: 2 }}></Box> <Typography>Nyasha</Typography>
+            <Box sx={{ m: 2 }}></Box> <Typography> Dr Nyasha</Typography>
           </div>
         </div>
       </div>

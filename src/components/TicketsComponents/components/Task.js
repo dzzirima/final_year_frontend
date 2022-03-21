@@ -12,7 +12,7 @@ function Task({ task1, onTglStatus }) {
       <div className="taskMainContainer">
         <div>
           <div className = "taskTitleNameContainer">
-             <Avatar> N </Avatar>   <Box sx = {{ m:1}}/> <h4>{`Nasha`}</h4> <Box sx = {{ m:1}}/> <Typography variant = "body2"> 22/09/2021</Typography>
+             <Avatar> DR </Avatar>   <Box sx = {{ m:1}}/> <h4>{`Marley`}</h4> <Box sx = {{ m:1}}/> <Typography variant = "body2"> 22/09/2021</Typography>
              </div>
           <p> 
             Eiusmod do sit eu nisi laborum fugiat proident minim deserunt sunt incididunt. Occaecat 
