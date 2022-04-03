@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./index.css";
 import { users as options } from "../../services/sampleData";
+import axiosInstance  from "../../services/Axios"
 
-//import { axiosInstance } from "../../../services/axios";
-// import { useSnackbar } from "notistack"
+import { toast } from "react-toastify";
+
 import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
 import Select from "react-select";
 function  NewPrescription(){
@@ -11,43 +12,42 @@ function  NewPrescription(){
   const [formData, setFormData] = useState({});
 
   const handleSearchChange = (e) => {
-    setFormData({ ...formData, [e.id]: e.value.trim() });
-    console.log(formData);
+    setFormData({ ...formData, "patientId": e.value.trim() });
+  
   };
-// //   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
-//   const [formData, setFormData] = useState({});
 
-//   const handleChange = (e) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
-//     console.log(formData) 
-//   };
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       let response = await axiosInstance.post("/auth/register", formData);
-//       if (response) {
-//         let success = response.data.success;
-//         console.log(response.data);
-//         if (success === "true") {
-//           enqueueSnackbar("User Creation was successful", {
-//             variant: "success",
-//           });
-//         } else {
-//           enqueueSnackbar("User creation Failed:User Already Exist", {
-//             variant: "warning",
-//           });
-//         }
-//         // check
-//       }
-//     } catch (error) {
-//       enqueueSnackbar(`${error.message}`, { variant: "error" });
-//     }
-//   };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
+   console.log(formData)
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    return console.log(formData)
+    try {
+      let response = await axiosInstance.post("records/createRecord", formData);
+      if (response) {
+        let success = response.data.success;
+        console.log(response.data);
+        if (success === true) {
+          toast.success("User Creation was successful", {
+            variant: "success",
+          });
+        } else {
+          toast.error("User creation Failed:User Already Exist", {
+            variant: "warning",
+          });
+        }
+        // check
+      }
+    } catch (error) {
+      toast.error(`${error.message}`, { variant: "error" });
+    }
+  };
 
   return (
     <div className="newUser">
       {/* <h1 className="newUserTitle">New User</h1> */}
-      <form action="" className="newUserform">
+      <form action="" className="newUserform" onSubmit = {handleSubmit}>
         <div className="newUserItem">
           <TextField
             variant="outlined"
@@ -55,12 +55,9 @@ function  NewPrescription(){
             name="drugdescription"
             required
             fullWidth
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
-
-
-       
 
         <div className="newUserItem">
           {/* <label htmlFor=""> Phone (+263 785 5214)</label> */}
@@ -68,7 +65,7 @@ function  NewPrescription(){
             variant="outlined"
             type="tel"
             autoComplete="false"
-            // onChange={handleChange}
+            onChange={handleChange}
             label="Quantity Prescribed"
             name="quantity"
           ></TextField>
@@ -77,7 +74,7 @@ function  NewPrescription(){
         <div className = "selectMaincontainer">
             <Select
               id="select_user"
-              placeholder="Select Prescriber"
+              placeholder="Select Patient"
               name="clientId"
               className="myField"
               onChange={handleSearchChange}
@@ -86,7 +83,6 @@ function  NewPrescription(){
             </div>
         </div>
         
-
         <div className="newUserItem">
           <div className="userButton">
             <Button variant="contained" color="primary" type="submit">
