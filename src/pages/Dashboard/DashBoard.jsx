@@ -8,11 +8,15 @@ import { TicketColumns as columns } from "../../services/TableColumn";
 import { sampleTickets as data } from "../../services/sampleData";
 import Greetings from "../../components/Greetings/Greetings";
 import { useUserContext } from "../../context/userContext";
+import TopBar from "../../components/TopBar/TopBar";
 
 const DashBoard = () => {
   const [cost, setcost] = useState(0);
   const{user} = useUserContext()
   return (
+    <>
+  <TopBar/>
+
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
         <Greetings  userName ={user.name}/>
@@ -33,6 +37,7 @@ const DashBoard = () => {
         <TicketsTable columns ={columns}  data = {data} title ="Newly Created Medical Records" />
       </div>
     </div>
+    </>
   );
 };
 

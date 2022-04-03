@@ -9,11 +9,15 @@ import { pharmacistColumns as columns } from "../../services/TableColumn";
 import { sampleTickets as data } from "../../services/sampleData";
 import { useUserContext } from "../../context/userContext";
 import Greetings from "../../components/Greetings/Greetings";
+import TopBar from "../../components/TopBar/TopBar";
 
 const PhamacistDashBoard = () => {
   const [cost, setcost] = useState(0);
   const{user} = useUserContext()
   return (
+    <>
+    <TopBar/>
+    
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
       <Greetings  userName ={user.name}/>
@@ -35,6 +39,7 @@ const PhamacistDashBoard = () => {
         <TicketsTable columns={columns}  data ={data} title ="Your Patients Prescriptions Recent Activity"/>
       </div>
     </div>
+    </>
   );
 };
 

@@ -10,12 +10,16 @@ import { sampleTickets as data } from "../../services/sampleData";
 import Greetings from "../../components/Greetings/Greetings";
 import AddPrescription from "../AddNew/AddPrescription";
 import { useUserContext } from "../../context/userContext";
+import TopBar from "../../components/TopBar/TopBar";
 
 
 const DoctorDashBoard = () => {
   const [cost, setcost] = useState(0);
   const{user} = useUserContext()
   return (
+    <>
+    <TopBar/>
+    
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
       <Greetings  userName ={user.name}/>
@@ -39,6 +43,7 @@ const DoctorDashBoard = () => {
         <TicketsTable columns={columns}  data = {data}/>
       </div>
     </div>
+    </>
   );
 };
 

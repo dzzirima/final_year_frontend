@@ -1,7 +1,7 @@
 import {create} from "axios";
 
 const BaseURL = create({
-    baseURL: 'https://ict-help-desk.herokuapp.com'
+    baseURL: 'http://localhost:4000/api/v1'
   })
 
   export default BaseURL

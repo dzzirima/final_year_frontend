@@ -16,7 +16,7 @@ function App() {
     <UserContextProvider>
       <Router>
         <div className="App">
-          {!loginStatus && <TopBar />}
+          
           <Switch>
             {routes.map((route, index) => {
               return (

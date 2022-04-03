@@ -1,4 +1,13 @@
-import { Button, Container, Dialog, DialogActions, DialogContent, DialogTitle, Fab, Tooltip } from "@mui/material";
+import {
+  Button,
+  Container,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Fab,
+  Tooltip,
+} from "@mui/material";
 import MUIDataTable from "mui-datatables";
 import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
@@ -7,52 +16,54 @@ import { sampleUsers } from "../../services/sampleData";
 import { tableOptions, UserColumns } from "../../services/TableColumn";
 
 import "./index.css";
+import TopBar from "../../components/TopBar/TopBar";
 
 const Users = () => {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <Container className="mainUserContainer">
-      <div className="topUserContainer">
-        <h1>
-        <Tooltip title="Add  New User" arrow>
-          <Fab   onClick = {handleClickOpen} color="primary" aria-label="add">
-            <AddIcon />
-          </Fab>
-          </Tooltip>
-        </h1>
-      </div>
+    <>
+      <TopBar />
 
-      <div>
-        <div style={{ maxWidth: "100%" }}>
-          <MUIDataTable
-            title={"User List"}
-            data={sampleUsers}
-            columns={UserColumns}
-            options={tableOptions}
-          />
+      <Container className="mainUserContainer">
+        <div className="topUserContainer">
+          <h1>
+            <Tooltip title="Add  New User" arrow>
+              <Fab onClick={handleClickOpen} color="primary" aria-label="add">
+                <AddIcon />
+              </Fab>
+            </Tooltip>
+          </h1>
         </div>
-      </div>
 
-      {/* popup the adding user form */}
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="form-dialog-title"
-      >
-        <DialogTitle id="form-dialog-title"> Add new User</DialogTitle>
+        <div>
+          <div style={{ maxWidth: "100%" }}>
+            <MUIDataTable
+              title={"User List"}
+              data={sampleUsers}
+              columns={UserColumns}
+              options={tableOptions}
+            />
+          </div>
+        </div>
+
+        {/* popup the adding user form */}
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="form-dialog-title"
+        >
+          <DialogTitle id="form-dialog-title"> Add new User</DialogTitle>
           <DialogContent>
-              <NewUser/>
-            
+            <NewUser />
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} color="secondary">
@@ -62,12 +73,9 @@ const Users = () => {
               Save
             </Button>
           </DialogActions>
-        
-      </Dialog>
-
-
-
-    </Container>
+        </Dialog>
+      </Container>
+    </>
   );
 };
 
