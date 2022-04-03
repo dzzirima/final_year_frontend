@@ -13,28 +13,27 @@ function  NewUser(){
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
-    console.log(formData) 
+     
   };
   const handleSubmit = async (e) => {
+
+    
     e.preventDefault();
+    console.log(formData)
     try {
       let response = await axiosInstance.post("/auth/register", formData);
-      if (response) {
-        let success = response.data.success;
-        console.log(response.data);
-        if (success === "true") {
-          toast("User Creation was successful", {
-            variant: "success",
-          });
-        } else {
-          toast("User creation Failed:User Already Exist", {
-            variant: "warning",
-          });
-        }
-        // check
+      let {success, message} = response.data
+      if (success) {
+        toast.success(`${message}`)
+
+      }else{
+        toast.error(`${message}`, {
+          variant: "fail",
+        });
+
       }
     } catch (error) {
-      toast(`${error.message}`, { variant: "error" });
+      toast.error(`${error.message}`, { variant: "error" });
     }
   };
 
@@ -49,7 +48,7 @@ function  NewUser(){
             name="email"
             required
             fullWidth
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
 
@@ -68,7 +67,7 @@ function  NewUser(){
               variant="outlined"
               label="Repeat Password"
               name="password"
-            //   onChange={handleChange}
+            onChange={handleChange}
               // fullWidth
             ></TextField>
           </div>
@@ -81,14 +80,14 @@ function  NewUser(){
               label="Name"
               name="firstname"
               required
-            //   onChange={handleChange}
+            onChange={handleChange}
               // fullWidth
             ></TextField>
             <TextField
               variant="outlined"
               name="lastname"
               label="Surname"
-            //   onChange={handleChange}
+             onChange={handleChange}
               // fullWidth
             ></TextField>
           </div>
@@ -100,7 +99,7 @@ function  NewUser(){
             variant="outlined"
             type="tel"
             autoComplete="false"
-            // onChange={handleChange}
+            onChange={handleChange}
             label="Phone"
             name="phone"
           ></TextField>
@@ -112,7 +111,7 @@ function  NewUser(){
             variant="outlined"
             label="Address"
             name="address"
-            // onChange={handleChange}
+            onChange={handleChange}
           ></TextField>
         </div>
         <div className="newUserItem">
@@ -126,7 +125,7 @@ function  NewUser(){
               onChange={handleChange}
             >
               <FormControlLabel
-                value="admin"
+                value="doctor"
                 control={<Radio />}
                 label="doctor"
               />
