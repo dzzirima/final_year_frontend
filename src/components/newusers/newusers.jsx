@@ -2,43 +2,46 @@ import React, { useState } from "react";
 import "./newusers.css";
 
 //import { axiosInstance } from "../../../services/axios";
-// import { useSnackbar } from "notistack"
-import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
-function  NewUser(){
-// //   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
-//   const [formData, setFormData] = useState({});
+import { toast } from "react-toastify";
 
-//   const handleChange = (e) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
-//     console.log(formData) 
-//   };
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       let response = await axiosInstance.post("/auth/register", formData);
-//       if (response) {
-//         let success = response.data.success;
-//         console.log(response.data);
-//         if (success === "true") {
-//           enqueueSnackbar("User Creation was successful", {
-//             variant: "success",
-//           });
-//         } else {
-//           enqueueSnackbar("User creation Failed:User Already Exist", {
-//             variant: "warning",
-//           });
-//         }
-//         // check
-//       }
-//     } catch (error) {
-//       enqueueSnackbar(`${error.message}`, { variant: "error" });
-//     }
-//   };
+import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
+import axiosInstance from "../../services/Axios"
+function  NewUser(){
+
+
+  const [formData, setFormData] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
+    console.log(formData) 
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let response = await axiosInstance.post("/auth/register", formData);
+      if (response) {
+        let success = response.data.success;
+        console.log(response.data);
+        if (success === "true") {
+          toast("User Creation was successful", {
+            variant: "success",
+          });
+        } else {
+          toast("User creation Failed:User Already Exist", {
+            variant: "warning",
+          });
+        }
+        // check
+      }
+    } catch (error) {
+      toast(`${error.message}`, { variant: "error" });
+    }
+  };
 
   return (
     <div className="newUser">
       {/* <h1 className="newUserTitle">New User</h1> */}
-      <form action="" className="newUserform">
+      <form action="" className="newUserform" onSubmit={handleSubmit}>
         <div className="newUserItem">
           <TextField
             variant="outlined"
@@ -119,8 +122,8 @@ function  NewUser(){
               row
               aria-label="role"
               name="role"
-            //   value={formData.role}
-            //   onChange={handleChange}
+              value={formData.role}
+              onChange={handleChange}
             >
               <FormControlLabel
                 value="admin"

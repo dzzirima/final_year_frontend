@@ -17,8 +17,8 @@ import BaseURL from "../../services/Axios";
 
 import { useHistory } from "react-router-dom";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
 import { useUserContext } from "../../context/userContext";
 
 function Copyright(props) {
@@ -180,7 +180,7 @@ export default function SignInSide() {
             </Box>
           </Box>
         </Grid>
-        <ToastContainer />
+        
       </Grid>
     </ThemeProvider>
   );

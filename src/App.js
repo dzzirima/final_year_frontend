@@ -9,6 +9,9 @@ import { UserContextProvider, useUserContext } from "./context/userContext";
 import ProtectedRoute from "./pages/ProtectedPage/Protected";
 import { ProtectedPage } from "./pages/ProtectedPage/ProtetedPage";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   const {user,loginStatus} = useUserContext() 
@@ -32,6 +35,7 @@ function App() {
 
 
         </div>
+        <ToastContainer />
       </Router>
     </UserContextProvider>
   );
