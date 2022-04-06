@@ -23,18 +23,46 @@ export const tableOptions  = {
 //tickects columns
  
  export const TicketColumns = [
+
+  {
+    name: "recordId",
+    label: "Record ID",
+    print: true,
+    options: {
+      filter: true,
+      sort: true,
+    },
+  },
     {
-      name: "prescribedDate",
-      label: "Prescibed Date",
+      name: "doctorId",
+      label: "Prescriber ID",
       print: true,
       options: {
         filter: true,
         sort: true,
       },
     },
-  
     {
-      name: "dateCollected",
+      name: "myprescribedDate",
+      label: "Prescribed  Date",
+      print: true,
+      options: {
+        filter: true,
+        print: true,
+        sort: false,
+      },
+    },
+    {
+      name: "doctorId",
+      label: "Approved Collections",
+      print: true,
+      options: {
+        filter: true,
+        sort: false,
+      },
+    },
+    {
+      name: "myprescribedDate",
       label: "Collected Date",
       print: true,
       options: {
@@ -43,59 +71,28 @@ export const tableOptions  = {
         sort: false,
       },
     },
-    {
-      name: "recordID",
-      label: "Record ID",
-      print: true,
-      options: {
-        filter: true,
-        print: true,
-        sort: false,
-      },
-    },
-    {
-      name: "status",
-      label: "Sharing status",
-      print: true,
-      options: {
-        filter: true,
-        sort: true,
-        customBodyRender: (value, tableMeta, updateValue) => (
-          <>
-            <p className={value}>{value}</p>
-          </>
-        ),
-      },
-    },
 
-
+  
     {
-      name: "type",
-      label: "Type",
+      name: "myquantityPrescribed",
+      label: "Quantity",
       print: true,
       options: {
         filter: true,
         sort: false,
       },
     },
+   
     {
-      name: "subject",
-      label: "Subject",
+      name: "drugDescription",
+      label: "Drug Description",
       print: true,
       options: {
         filter: true,
         sort: false,
       },
     },
-    {
-      name: "prescribedBy",
-      label: "Prescribed By",
-      print: true,
-      options: {
-        filter: true,
-        sort: false,
-      },
-    },
+   
 
     {
       name: "recordId",
@@ -130,20 +127,7 @@ export const tableOptions  = {
         ),
       },
     },
-    {
-      name: "recordId",
-      label: "Acess",
-      print: false,
-      options: {
-        filter: false,
-        sort: false,
-        customBodyRender: (value, tableMeta, updateValue) => (
-          <div>
-              <AssingTech options={myoptions}  title = {"Revoke"} />
-          </div>
-        ),
-      },
-    },
+    
   ];
 // ....................................................................user columns............................
   export const UserColumns = [
