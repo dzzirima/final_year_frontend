@@ -11,6 +11,9 @@ import { useUserContext } from "../../context/userContext";
 import TopBar from "../../components/TopBar/TopBar";
 import axiosInstance from "../../services/Axios"
 import moment from "moment"
+import GrantAccess from "../../components/AccessControl/GrantAccess/GrantAccess";
+import GrantAccessContainer from "../../components/AccessControl/GrandAcessContainer/GrantAccessContainer";
+import RevokeAccessContainer from "../../components/AccessControlRevoke/RevokeAcessContainer/RevokeAccessContainer";
 
 const DashBoard = () => {
   const [cost, setcost] = useState(0);
@@ -71,9 +74,10 @@ const DashBoard = () => {
     <div className="mainDashBoard">
       <div className="mainSummaryContainer">
         <Greetings  userName ={user.name}/>
-        <Summary name="Newly Created Records" value={5} />
-        <Summary name="Shared Records" value={10} />
-        <Summary name="Not Shared Records" value={20} />
+        <GrantAccessContainer/>
+        <RevokeAccessContainer/>
+        
+        
         <Summary name="Total" value={35} />
       </div>
       <Divider sx={{ my: 2 }}>
