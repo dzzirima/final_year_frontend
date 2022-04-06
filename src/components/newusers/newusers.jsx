@@ -16,10 +16,8 @@ function  NewUser(){
      
   };
   const handleSubmit = async (e) => {
-
-    
     e.preventDefault();
-    console.log(formData)
+  //  return  console.log(formData)
     try {
       let response = await axiosInstance.post("/auth/register", formData);
       let {success, message} = response.data
@@ -130,12 +128,12 @@ function  NewUser(){
                 label="doctor"
               />
               <FormControlLabel
-                value="technician"
+                value="patient"
                 control={<Radio />}
                 label="patient"
               />
               <FormControlLabel
-                value="client"
+                value="phamacist"
                 control={<Radio />}
                 label="pharmacist"
               />

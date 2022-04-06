@@ -147,8 +147,18 @@ export const tableOptions  = {
   ];
 // ....................................................................user columns............................
   export const UserColumns = [
+
     {
-      name: "firstName",
+      name: "Id",
+      label: "User ID",
+      print: true,
+      options: {
+        filter: true,
+        sort: true,
+      },
+    },
+    {
+      name: "firstname",
       label: "First Name",
       print: true,
       options: {
@@ -158,8 +168,8 @@ export const tableOptions  = {
     },
   
     {
-      name: "lastName",
-      label: "Last NAme",
+      name: "lastname",
+      label: "Last Name",
       print: true,
       options: {
         filter: true,
@@ -167,16 +177,16 @@ export const tableOptions  = {
         sort: false,
       },
     },
-    {
-      name: "phone",
-      label: "Phone",
-      print: true,
-      options: {
-        filter: true,
-        print: true,
-        sort: false,
-      },
-    },
+    // {
+    //   name: "verified",
+    //   label: "Verified",
+    //   print: true,
+    //   options: {
+    //     filter: true,
+    //     print: true,
+    //     sort: false,
+    //   },
+    // },
     {
       name: "email",
       label: "Email",

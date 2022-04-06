@@ -9,17 +9,20 @@ import {
   Tooltip,
 } from "@mui/material";
 import MUIDataTable from "mui-datatables";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import NewUser from "../../components/newusers/newusers";
 import { sampleUsers } from "../../services/sampleData";
 import { tableOptions, UserColumns } from "../../services/TableColumn";
+
+import axiosInstance from "../../services/Axios"
 
 import "./index.css";
 import TopBar from "../../components/TopBar/TopBar";
 
 const Users = () => {
   const [open, setOpen] = useState(false);
+  const [users, setusers] = useState()
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -29,6 +32,33 @@ const Users = () => {
     setOpen(false);
   };
 
+
+  useEffect(() => {
+
+    let get_all_users = async () => {
+      try {
+        const getAllUsersResponse = await axiosInstance.get("/auth/getAllUsers");
+        let users = getAllUsersResponse.data.data;
+        // let my_deposits = deposits_response.data.data.deposits;
+        // console.log(my_deposits);
+        // let customised_deposits = my_deposits.map((deposit) => ({
+        //   ...deposit,
+        //   amount: numberFormat(deposit.amount),
+        //   date:formartDate(deposit.date)
+          
+          
+        // }));
+        // setdeposits(customised_deposits);
+      setusers(users)
+      console.log(users)
+      
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    get_all_users();
+  }, []);
+  
   return (
     <>
       <TopBar />
@@ -48,7 +78,7 @@ const Users = () => {
           <div style={{ maxWidth: "100%" }}>
             <MUIDataTable
               title={"User List"}
-              data={sampleUsers}
+              data={users}
               columns={UserColumns}
               options={tableOptions}
             />
