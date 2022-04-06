@@ -3,7 +3,8 @@
 import { createContext, useContext, useState } from "react";
 const USER = {
     name:"Guest",
-    isGuest:true
+    isGuest:true,
+    userId:""
 }
 
 export const userContext = createContext({
@@ -22,8 +23,8 @@ export function UserContextProvider({children}){
     const [user, setuser] = useState(USER) //initial state of the user to be shared
 
     /**defining specific functions for the user ie login and logout */
-    function login(username){
-        setuser({isGuest:false ,name:username ,loginStatus:true})
+    function login(username ,userId ){
+        setuser({isGuest:false ,name:username ,loginStatus:true ,userId:userId})
         console.log(user)
     }
 

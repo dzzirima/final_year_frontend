@@ -59,7 +59,7 @@ export default function SignInSide() {
       if (loginResponce.data.success == true) {
         console.log("login gafa");
         let { token, user } = loginResponce.data.data;
-        login(user.email)
+        login(user.email ,user.userId )
         console.log(user)
 
         //redirect  to respectifull pages
