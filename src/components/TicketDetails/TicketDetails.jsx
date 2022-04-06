@@ -107,7 +107,7 @@ const TicketDetails = () => {
               <Typography variant>Subject</Typography>
             </div>
             <Box sx={{ m: 2 }}></Box>
-            <Typography>Internet Not working</Typography>
+            <Typography>Lorem ipsum dolor sit amet</Typography>
           </div>
           <div className="ticketItemContainer">
             
