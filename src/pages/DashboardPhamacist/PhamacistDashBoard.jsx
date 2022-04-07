@@ -63,7 +63,8 @@ const PhamacistDashBoard = () => {
         let mydate = new Date(dateObjectName * 1000);
         let formatedDate = moment(mydate, "YYYY-MM-DD hh:mm:ss a");
         // let actualDate = formatedDate.format('llll')
-        let actualDate = formatedDate.fromNow();
+        // let actualDate = formatedDate.fromNow();
+        let actualDate = formatedDate.format("d MMM YYYY HH:mm")
 
         return {
           ...record,
