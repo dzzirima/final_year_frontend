@@ -17,8 +17,7 @@ import { useUserContext } from "../../context/userContext";
 // import { axiosInstance } from "../../../services/axios";
 
 const TopBar = () => {
-  const { user,logout,login } = useUserContext();
-  
+  const { user, logout, login } = useUserContext();
 
   let refresher;
   const [active, setActivePage] = useState(false);
@@ -97,7 +96,6 @@ const TopBar = () => {
             
           ) } */}
         </div>
-
       </div>
     </div>
   );
