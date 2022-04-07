@@ -43,9 +43,10 @@ const TopBar = () => {
         </div>
 
         <div className="topCenterFlex">
-          {/* <div className={active === "tickets" ? "topCenterActive" : undefined}>
+          <div className={active === "tickets" ? "topCenterActive" : undefined}>
             <ListItem
               button
+              disabled
               component={Link}
               to="/"
               id="tickets"
@@ -53,21 +54,22 @@ const TopBar = () => {
             >
               Records
             </ListItem>
-          </div> */}
+          </div>
 
-          {/* <div className={active === "users" ? "topCenterActive" : undefined}>
+          <div className={active === "users" ? "topCenterActive" : undefined}>
             <Tooltip title="All Doctors and Phamarcists with access to your Records">
               <ListItem
                 button
                 component={Link}
+                disabled
                 id="users"
-                to="/users"
+                to="#"
                 onClick={changeActivePage}
               >
                 Shared Presscribers {user.username}
               </ListItem>
             </Tooltip>
-          </div> */}
+          </div>
 
           <div
             className={active === "settings" ? "topCenterActive" : undefined}
