@@ -5,6 +5,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import AssingTech from "../components/AssignTechnician/AssingTech";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { users as myoptions } from "./sampleData";
+import { toast } from "react-toastify";
 
 // option for all the table in the applications
 export const tableOptions  = {
@@ -409,7 +410,11 @@ export const tableOptions  = {
         customBodyRender: (value, tableMeta, updateValue) => (
           <div>
             
-              <Button color = "primary" id= {value} variant="outlined" startIcon={<CheckCircleIcon />}>
+              <Button color = "primary" id= {value} variant="outlined" startIcon={<CheckCircleIcon />} onClick ={(e) =>{
+                let recordId = e.target.id
+                console.log(e.target.id)
+                toast.success("You take credit for the collecton of this prescription")
+              }}>
                 Cornfirm Collection
               </Button>
             

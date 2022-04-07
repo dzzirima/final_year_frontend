@@ -50,8 +50,8 @@ export const sampleUsers = [
 ]
 
 export const users = [
-    { value: "John", label: "John" },
-    { value: "Praise", label: "Praise" },
-    { value: "Nyasha", label: "Nyasha" },
-    { value: "Munya", label: "Munya" },
+    { value: "John", label: "DR John" },
+    { value: "Praise", label: "PHM Praise" },
+    { value: "Nyasha", label: "DR Nyasha" },
+    { value: "Munya", label: "DR Munya" },
   ];
