@@ -41,14 +41,14 @@ const PhamacistDashBoard = () => {
     try {
       const getAllUserRecordsResponse = await axiosInstance.post(
         "/records/getAllUserRecords",
-        {
-          userId:"6h2ZuwDamb",
-          requestor:"6h2ZuwDamb"
-        }
         // {
-        //   userId: formData.userId,
-        //   requestor: user.userId,
+        //   userId:"6h2ZuwDamb",
+        //   requestor:"6h2ZuwDamb"
         // }
+        {
+          userId: formData.userId,
+          requestor: user.userId,
+        }
       );
 
       let userRecords = getAllUserRecordsResponse.data.data;

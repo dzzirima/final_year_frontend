@@ -9,89 +9,90 @@ import { sampleTickets as data } from "../../services/sampleData";
 import Greetings from "../../components/Greetings/Greetings";
 import { useUserContext } from "../../context/userContext";
 import TopBar from "../../components/TopBar/TopBar";
-import axiosInstance from "../../services/Axios"
-import moment from "moment"
+import axiosInstance from "../../services/Axios";
+import moment from "moment";
 import GrantAccess from "../../components/AccessControl/GrantAccess/GrantAccess";
 import GrantAccessContainer from "../../components/AccessControl/GrandAcessContainer/GrantAccessContainer";
 import RevokeAccessContainer from "../../components/AccessControlRevoke/RevokeAcessContainer/RevokeAccessContainer";
 
 const DashBoard = () => {
   const [cost, setcost] = useState(0);
-  const [myOptions, setoptions] = useState()
-  const{user} = useUserContext()
+  const [myOptions, setoptions] = useState();
+  const { user } = useUserContext();
 
   useEffect(() => {
     let get_all_user_records = async () => {
       try {
-        const getAllUserRecordsResponse = await axiosInstance.post("/records/getAllUserRecords",{
-          userId:"6h2ZuwDamb",
-          requestor:"6h2ZuwDamb"
-      });
- 
-        let userRecords = getAllUserRecordsResponse.data.data;
-        console.log(userRecords)
-        
-        let customise_user_records = userRecords.map((record) => {
+        const getAllUserRecordsResponse = await axiosInstance.post(
+          "/records/getAllUserRecords",
+          // {
+          //   userId: "6h2ZuwDamb",
+          //   requestor: "6h2ZuwDamb",
+          // }
+          {
+            userId:user.userId,
+            requestor:user.userId
+          }
 
-          let myDate = record.collectionDate.hex
-         
-          var dateObjectName = parseInt(myDate, 16);
-          var quantityPrescribed = parseInt(record.quantityPrescribed.hex ,16)
-
-          let mydate =new Date(dateObjectName *1000)
-          let formatedDate = moment(mydate, 'YYYY-MM-DD hh:mm:ss a')
-          // let actualDate = formatedDate.format('llll')
-          let actualDate = formatedDate.fromNow()
-        
-          
-          return({
-            ...record,
-            myprescribedDate:actualDate,
-            myquantityPrescribed:quantityPrescribed
-           
-          })
-        }
-         
         );
 
-        setoptions(customise_user_records)
+        let userRecords = getAllUserRecordsResponse.data.data;
+        console.log(userRecords);
 
-  
-      
+        let customise_user_records = userRecords.map((record) => {
+          let myDate = record.collectionDate.hex;
+
+          var dateObjectName = parseInt(myDate, 16);
+          var quantityPrescribed = parseInt(record.quantityPrescribed.hex, 16);
+
+          let mydate = new Date(dateObjectName * 1000);
+          let formatedDate = moment(mydate, "YYYY-MM-DD hh:mm:ss a");
+          // let actualDate = formatedDate.format('llll')
+          let actualDate = formatedDate.fromNow();
+
+          return {
+            ...record,
+            myprescribedDate: actualDate,
+            myquantityPrescribed: quantityPrescribed,
+          };
+        });
+
+        setoptions(customise_user_records);
       } catch (error) {
         console.log(error.message);
       }
     };
-    get_all_user_records()   
-  }, [])
-
-
+    get_all_user_records();
+  }, []);
 
   return (
     <>
-  <TopBar/>
+      <TopBar />
 
-    <div className="mainDashBoard">
-      <div className="mainSummaryContainer">
-        <Greetings  userName ={user.name}/>
-        <GrantAccessContainer/>
-        <RevokeAccessContainer/>
-        
-        
-        <Summary name="Total" value={35} />
-      </div>
-      <Divider sx={{ my: 2 }}>
-        {" "}
-        <Typography variant="subtitle1">
+      <div className="mainDashBoard">
+        <div className="mainSummaryContainer">
+          <Greetings userName={user.name} />
+          <GrantAccessContainer />
+          <RevokeAccessContainer />
+
+          <Summary name="Total" value={35} />
+        </div>
+        <Divider sx={{ my: 2 }}>
           {" "}
-          <SecurityIcon color="primary" /> Secure your Medical Records{" "}
-          <SecurityIcon color="primary" />{" "}
-        </Typography>{" "}
-      </Divider>
-      <div>
-        <TicketsTable columns ={columns}  data = {myOptions} title ="Newly Created Medical Records" />
+          <Typography variant="subtitle1">
+            {" "}
+            <SecurityIcon color="primary" /> Secure your Medical Records{" "}
+            <SecurityIcon color="primary" />{" "}
+          </Typography>{" "}
+        </Divider>
+        <div>
+          <TicketsTable
+            columns={columns}
+            data={myOptions}
+            title="Newly Created Medical Records"
+          />
+        </div>
       </div>
-    </div>
     </>
   );
 };

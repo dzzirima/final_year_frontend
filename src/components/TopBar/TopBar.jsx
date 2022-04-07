@@ -44,7 +44,7 @@ const TopBar = () => {
         </div>
 
         <div className="topCenterFlex">
-          <div className={active === "tickets" ? "topCenterActive" : undefined}>
+          {/* <div className={active === "tickets" ? "topCenterActive" : undefined}>
             <ListItem
               button
               component={Link}
@@ -54,9 +54,9 @@ const TopBar = () => {
             >
               Records
             </ListItem>
-          </div>
+          </div> */}
 
-          <div className={active === "users" ? "topCenterActive" : undefined}>
+          {/* <div className={active === "users" ? "topCenterActive" : undefined}>
             <Tooltip title="All Doctors and Phamarcists with access to your Records">
               <ListItem
                 button
@@ -68,7 +68,7 @@ const TopBar = () => {
                 Shared Presscribers {user.username}
               </ListItem>
             </Tooltip>
-          </div>
+          </div> */}
 
           <div
             className={active === "settings" ? "topCenterActive" : undefined}
@@ -80,11 +80,11 @@ const TopBar = () => {
               to="/settings"
               onClick={changeActivePage}
             >
-              SETTINGS
+              Login
             </ListItem>
           </div>
 
-          {!user.isGuest && (
+          {/* {!user.isGuest && (
             <div className={active === "toadd" ? "topCenterActive" : undefined}>
             <ListItem
               button
@@ -95,24 +95,9 @@ const TopBar = () => {
             >  LOGOUT</ListItem>
           </div>
             
-          ) }
+          ) } */}
         </div>
 
-        {/* <div className="topRight">
-        
-          <div className="topbarIcons">
-          
-            <IconButton>
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-
-            <IconButton>
-              <Avatar>KL</Avatar>
-            </IconButton>
-          </div>
-        </div> */}
       </div>
     </div>
   );
