@@ -12,3 +12,19 @@
   -webkit-box-shadow: -1px 10px 15px -3px rgba(51, 95, 234, 0.68);
   -moz-box-shadow: -1px 10px 15px -3px rgba(51, 95, 234, 0.68);
 }
+
+.chooseUserContainer{
+  margin-top: 30px;
+
+}
+
+.innerFormContainer{
+  width: inherit;
+  display: flex;
+  flex-direction: row;
+}
+.SelectField{
+  width: 600px;
+  margin-left: 10px;
+  z-index: 380;
+}

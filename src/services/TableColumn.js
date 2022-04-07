@@ -309,83 +309,79 @@ export const tableOptions  = {
   ];
 
   export const pharmacistColumns = [
-    {
-      name: "prescribedBy",
-      label: "Client Name",
-      print: true,
-      options: {
-        filter: true,
-        sort: true,
-      },
+   
+  {
+    name: "recordId",
+    label: "Record ID",
+    print: true,
+    options: {
+      filter: true,
+      sort: true,
     },
-    {
-      name: "prescribedDate",
-      label: "Prescibed Date",
-      print: true,
-      options: {
-        filter: true,
-        sort: true,
-      },
+  },
+  {
+    name: "doctorId",
+    label: "Prescriber ID",
+    print: true,
+    options: {
+      filter: true,
+      sort: true,
     },
+  },
   
-    {
-      name: "dateCollected",
-      label: "Collected Date",
+  {
+    name: "myprescribedDate",
+    label: "Prescribed  Date",
+    print: true,
+    options: {
+      filter: true,
       print: true,
-      options: {
-        filter: true,
-        print: true,
-        sort: false,
-      },
+      sort: false,
     },
-    {
-      name: "recordID",
-      label: "Record ID",
-      print: true,
-      options: {
-        filter: true,
-        print: true,
-        sort: false,
-      },
+  },
+  {
+    name: "doctorId",
+    label: "Approved Collections",
+    print: true,
+    options: {
+      filter: true,
+      sort: false,
     },
-    {
-      name: "status",
-      label: "Sharing status",
-      print: true,
-      options: {
-        filter: true,
-        sort: true,
-        customBodyRender: (value, tableMeta, updateValue) => (
-          <>
-            <p className={value}>{value}</p>
-          </>
-        ),
-      },
-    },
+  },
 
-
-    {
-      name: "type",
-      label: "Type",
+  {
+    name: "myprescribedDate",
+    label: "Collected Date",
+    print: true,
+    options: {
+      filter: true,
       print: true,
-      options: {
-        filter: true,
-        sort: false,
-      },
+      sort: false,
     },
-    {
-      name: "subject",
-      label: "Subject",
-      print: true,
-      options: {
-        filter: true,
-        sort: false,
-      },
+  },
+  {
+    name: "myquantityPrescribed",
+    label: "Quantity",
+    print: true,
+    options: {
+      filter: true,
+      sort: false,
     },
+  },
+  {
+    name: "drugDescription",
+    label: "Drug Description",
+    print: true,
+    options: {
+      filter: true,
+      sort: false,
+    },
+  },
+    
    
 
     {
-      name: "recordID",
+      name: "recordId",
       label: "Action",
       print: false,
       options: {
@@ -404,7 +400,7 @@ export const tableOptions  = {
     },
 
     {
-      name: "recordID",
+      name: "recordId",
       label: "Action",
       print: false,
       options: {
