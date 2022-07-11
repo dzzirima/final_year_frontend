@@ -65,7 +65,7 @@ export default function GrantAccessContainer({ message, userName }) {
           Share Your Prescription With:
         </Box>
 
-        <Box sx={{ color: "text.primary", fontSize: 28, fontWeight: "medium" }}>
+        <Box sx={{ color: "", fontSize: 28, fontWeight: "medium" }}>
           <div>
           <GrantAccess options={users} title={"Grant"} />
           </div>
@@ -73,7 +73,7 @@ export default function GrantAccessContainer({ message, userName }) {
 
         <Box
           sx={{
-            color: "success.dark",
+            color: "",
             display: "inline",
             fontWeight: "medium",
             mx: 0.5,

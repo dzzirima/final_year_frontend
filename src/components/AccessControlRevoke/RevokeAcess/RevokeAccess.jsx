@@ -91,7 +91,7 @@ const RevokeAcess = ({options ,title}) => {
             <div className = "selectMaincontainer">
             <Select
               id="select_user"
-              placeholder="Select Prescriber"
+              placeholder="Select Staff"
               name="clientId"
               className="myField"
               onChange={handleSearchChange}

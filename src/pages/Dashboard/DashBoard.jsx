@@ -76,14 +76,14 @@ const DashBoard = () => {
           <GrantAccessContainer />
           <RevokeAccessContainer />
 
-          <Summary name="Total" value={35} />
+        
         </div>
         <Divider sx={{ my: 2 }}>
           {" "}
           <Typography variant="subtitle1">
             {" "}
-            <SecurityIcon color="primary" /> Secure your Medical Records{" "}
-            <SecurityIcon color="primary" />{" "}
+             A Healthy Child is a Happy Child{" "}
+           
           </Typography>{" "}
         </Divider>
         <div>

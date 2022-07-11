@@ -25,27 +25,9 @@ export const tableOptions  = {
  
  export const TicketColumns = [
 
-  {
-    name: "recordId",
-    label: "Record ID",
-    print: true,
-    options: {
-      filter: true,
-      sort: true,
-    },
-  },
     {
-      name: "doctorId",
-      label: "Prescriber ID",
-      print: true,
-      options: {
-        filter: true,
-        sort: true,
-      },
-    },
-    {
-      name: "myprescribedDate",
-      label: "Prescribed  Date",
+      name: "date",
+      label: "Date",
       print: true,
       options: {
         filter: true,
@@ -54,8 +36,8 @@ export const tableOptions  = {
       },
     },
     {
-      name: "doctorId",
-      label: "Approved Collections",
+      name: "bcg",
+      label: "BCG",
       print: true,
       options: {
         filter: true,
@@ -63,8 +45,8 @@ export const tableOptions  = {
       },
     },
     {
-      name: "myprescribedDate",
-      label: "Collected Date",
+      name: "polio",
+      label: "Polio",
       print: true,
       options: {
         filter: true,
@@ -75,8 +57,8 @@ export const tableOptions  = {
 
   
     {
-      name: "myquantityPrescribed",
-      label: "Quantity",
+      name: "dpt",
+      label: "DPT",
       print: true,
       options: {
         filter: true,
@@ -85,8 +67,44 @@ export const tableOptions  = {
     },
    
     {
-      name: "drugDescription",
-      label: "Drug Description",
+      name: "hbv",
+      label: "HBV",
+      print: true,
+      options: {
+        filter: true,
+        sort: false,
+      },
+    },
+    {
+      name: "measles",
+      label: "measles",
+      print: true,
+      options: {
+        filter: true,
+        sort: false,
+      },
+    },
+    {
+      name: "covid",
+      label: "COVID",
+      print: true,
+      options: {
+        filter: true,
+        sort: false,
+      },
+    },
+    {
+      name: "weight",
+      label: "WEIGHT",
+      print: true,
+      options: {
+        filter: true,
+        sort: false,
+      },
+    },
+    {
+      name: "height",
+      label: "HEIGHT",
       print: true,
       options: {
         filter: true,
@@ -114,20 +132,7 @@ export const tableOptions  = {
       },
     },
 
-    {
-      name: "recordId",
-      label: "Access",
-      print: false,
-      options: {
-        filter: false,
-        sort: false,
-        customBodyRender: (value, tableMeta, updateValue) => (
-          <div>
-              <AssingTech options={myoptions} title = {"Grant"}/>
-          </div>
-        ),
-      },
-    },
+   
     
   ];
 // ....................................................................user columns............................
