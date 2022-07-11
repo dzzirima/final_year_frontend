@@ -38,7 +38,7 @@ function  NewUser(){
   return (
     <div className="newUser">
       {/* <h1 className="newUserTitle">New User</h1> */}
-      <form action="" className="newUserform" onSubmit={handleSubmit}>
+      <form action="" className="newUserform bg-text" onSubmit={handleSubmit}>
         <div className="newUserItem">
           <TextField
             variant="outlined"
@@ -133,9 +133,9 @@ function  NewUser(){
                 label="patient"
               />
               <FormControlLabel
-                value="phamacist"
+                value="nurse"
                 control={<Radio />}
-                label="pharmacist"
+                label="nurse"
               />
             
             </RadioGroup>
