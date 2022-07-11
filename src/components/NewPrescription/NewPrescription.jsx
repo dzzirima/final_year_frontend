@@ -15,16 +15,18 @@ function  NewPrescription(){
 
 
   const handleSearchChange = (e) => {
-    setFormData({ ...formData, "patientId": e.value.trim() });
+     
+    setFormData({ ...formData, "": e.value.trim() });
   
   };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
-   console.log(formData)
+   
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
     
    
     try {
@@ -34,9 +36,9 @@ function  NewPrescription(){
         console.log(response.data);
         
         if (success === true) {
-          toast.success("Prescription was successful created")
+          toast.success("Record was successful created")
         } else {
-          toast.error("Prescription creation Failed");
+          toast.error("Record creation Failed");
           toast.info(`${response.data.message}`)
         }
         // check
@@ -51,21 +53,20 @@ function  NewPrescription(){
     let get_all_users = async () => {
       try {
         const getAllUsersResponse = await axiosInstance.get("/auth/getAllUsers");
-        let users = getAllUsersResponse.data.data;
+
+        
+        let users = getAllUsersResponse.data.data.users;
+        console.log(users)
       
         let customised_users = users.map((user) => {
           let roleInit = "PNT"
 
-          if (user.role === "doctor"){
-            roleInit = "DR"
+          if (user.role === "nurse"){
+            roleInit = "NUR"
           }
-          if (user.role === "phamacist"){
-            roleInit = "PMCY"
-          }
-
-
+         
           return({
-            value:user.Id,
+            value:user._id,
             label :`${roleInit} `+" "+ user.lastname +" "+user.firstname
            
           })
@@ -148,26 +149,8 @@ function  NewPrescription(){
             onChange={handleChange}
           />
         </div>
-        <div className="newUserItem">
-          <TextField
-            variant="outlined"
-            label="COVID"
-            name="covid"
-            required
-            fullWidth
-            onChange={handleChange}
-          />
-        </div>
-        <div className="newUserItem">
-          <TextField
-            variant="outlined"
-            label="COVID"
-            name="covid"
-            required
-            fullWidth
-            onChange={handleChange}
-          />
-        </div>
+
+       
         <div className="newUserItem">
           <TextField
             variant="outlined"
@@ -188,16 +171,7 @@ function  NewPrescription(){
             onChange={handleChange}
           />
         </div>
-        <div className="newUserItem">
-          <TextField
-            variant="outlined"
-            label="HEIGHT"
-            name="height"
-            required
-            fullWidth
-            onChange={handleChange}
-          />
-        </div>
+   
         <div className="newUserItem">
           <TextField
             variant="outlined"

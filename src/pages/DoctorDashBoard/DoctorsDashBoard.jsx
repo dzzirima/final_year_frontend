@@ -33,8 +33,8 @@ const DoctorDashBoard = () => {
         <Typography variant="subtitle1">
           {" "}
        
-          <SecurityIcon color="primary" /> Share Medical Records Securely {" "}
-          <SecurityIcon color="primary" />{" "}
+           A Healthy Child Is A Happy Child {" "}
+          
         </Typography>{" "}
       </Divider>
       <div>

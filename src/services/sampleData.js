@@ -12,6 +12,58 @@ export const sampleTickets = [
 
 
     },
+    {
+        firstname:"Zenith",
+       lastname:"Ndlovu",
+        gender:"Female",
+        status:"shared",
+        dob:"12.02.21",
+        nameofmother:"Nono Ndlovu",
+        physicaladdres:"10 Nkulumane",
+        placeofbirth:"gweru",
+        healthcentre:"Pumula "
+
+
+    },
+    {
+        firstname:"Taylor",
+       lastname:"Ndlovu",
+        gender:"Male",
+        status:"shared",
+        dob:"12.09.10",
+        nameofmother:"ZaneleNdlovu",
+        physicaladdres:"Beverly hills",
+        placeofbirth:"newyork",
+        healthcentre:"MedAccess "
+
+
+    },
+    {
+        firstname:"Alexander",
+       lastname:"Ndlovu",
+        gender:"Ndlovu",
+        status:"shared",
+        dob:"12.09.21",
+        nameofmother:"GigiNdlovu",
+        physicaladdres:"12 Nkulumane",
+        placeofbirth:"England",
+        healthcentre:"Liverpool "
+
+
+    },
+    {
+        firstname:"Saaransh",
+       lastname:"Ndlovu",
+        gender:"Male",
+        status:"shared",
+        dob:"02.09.21",
+        nameofmother:"PreeshaNdlovu",
+        physicaladdres:"12 Nkulumane",
+        placeofbirth:"DRC",
+        healthcentre:"MedAccess "
+
+
+    },
 ]
 
 export const sampleUsers = [

@@ -38,7 +38,7 @@ const Users = () => {
     let get_all_users = async () => {
       try {
         const getAllUsersResponse = await axiosInstance.get("/auth/getAllUsers");
-        let users = getAllUsersResponse.data.data;
+        let users = getAllUsersResponse.data.data.users;
        console.log(getAllUsersResponse)
       setusers(users)
       console.log(users)
