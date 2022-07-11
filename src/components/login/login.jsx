@@ -12,7 +12,7 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import loginimage from "../../images/MedAccess.png";
+import loginimage from "../../images/baby.jpg";
 import BaseURL from "../../services/Axios";
 
 import { useHistory } from "react-router-dom";
@@ -31,7 +31,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="#">
-        MedAcess
+        EBHC
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -159,7 +159,7 @@ export default function SignInSide() {
               <Button
                 type="submit"
                 fullWidth
-                variant="contained"
+                variant="outlined"
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
