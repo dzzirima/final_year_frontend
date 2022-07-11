@@ -39,16 +39,7 @@ const Users = () => {
       try {
         const getAllUsersResponse = await axiosInstance.get("/auth/getAllUsers");
         let users = getAllUsersResponse.data.data;
-        // let my_deposits = deposits_response.data.data.deposits;
-        // console.log(my_deposits);
-        // let customised_deposits = my_deposits.map((deposit) => ({
-        //   ...deposit,
-        //   amount: numberFormat(deposit.amount),
-        //   date:formartDate(deposit.date)
-          
-          
-        // }));
-        // setdeposits(customised_deposits);
+       console.log(getAllUsersResponse)
       setusers(users)
       console.log(users)
       

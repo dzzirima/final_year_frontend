@@ -52,15 +52,18 @@ export default function SignInSide() {
 
     //return history.push('/patient')
     try {
+
+    
       let loginResponce = await BaseURL.post("/auth/login", {
         email: data.get("email"),
         password: data.get("password"),
       });
-      if (loginResponce.data.success == true) {
-        console.log("login gafa");
+
+      if (loginResponce.data.success == 'true') {
+    
         let { token, user } = loginResponce.data.data;
         login(user.email ,user.userId )
-        console.log(user)
+        console.log(user.role)
 
         //redirect  to respectifull pages
         switch (user.role) {
@@ -70,7 +73,7 @@ export default function SignInSide() {
           case "patient":
             history.push("/patient");
             break;
-          case "doctor":
+          case "nurse":
             history.push("/doctor");
             break;
           case "phamacist":
