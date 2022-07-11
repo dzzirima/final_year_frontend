@@ -213,8 +213,8 @@ export const tableOptions  = {
   /***Doctors Columns */
   export const doctorColumns = [
     {
-      name: "prescribedBy",
-      label: "Client Name",
+      name: "firstname",
+      label: "First Name",
       print: true,
       options: {
         filter: true,
@@ -222,8 +222,8 @@ export const tableOptions  = {
       },
     },
     {
-      name: "prescribedDate",
-      label: "Prescibed Date",
+      name: "lastname",
+      label: "Last Name",
       print: true,
       options: {
         filter: true,
@@ -232,8 +232,8 @@ export const tableOptions  = {
     },
   
     {
-      name: "dateCollected",
-      label: "Collected Date",
+      name: "gender",
+      label: "Gender",
       print: true,
       options: {
         filter: true,
@@ -242,8 +242,8 @@ export const tableOptions  = {
       },
     },
     {
-      name: "recordID",
-      label: "Record ID",
+      name: "dob",
+      label: "Date Of Birth",
       print: true,
       options: {
         filter: true,
@@ -265,28 +265,6 @@ export const tableOptions  = {
         ),
       },
     },
-
-
-    {
-      name: "type",
-      label: "Type",
-      print: true,
-      options: {
-        filter: true,
-        sort: false,
-      },
-    },
-    {
-      name: "subject",
-      label: "Subject",
-      print: true,
-      options: {
-        filter: true,
-        sort: false,
-      },
-    },
-   
-
     {
       name: "recordID",
       label: "Action",
