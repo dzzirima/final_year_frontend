@@ -74,7 +74,7 @@ export default function SignInSide() {
             history.push("/patient");
             break;
           case "nurse":
-            history.push("/doctor");
+            history.push("/nurse");
             break;
           case "phamacist":
             history.push("/phamacist");

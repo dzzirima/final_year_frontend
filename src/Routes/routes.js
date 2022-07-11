@@ -41,7 +41,7 @@ export   const routes = [
         
       },
       {
-        path: "/doctor",
+        path: "/nurse",
         component:<DoctorDashBoard/>
         
       },

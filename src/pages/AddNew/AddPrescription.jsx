@@ -25,7 +25,7 @@ const AddPrescription = () => {
     <Container className="mainUserContainer">
       <div className="topUserContainer">
         <h1>
-        <Tooltip title="Add  New Prescription" arrow>
+        <Tooltip title="Add  New Medical Record" arrow>
           <Fab   onClick = {handleClickOpen} color="primary" aria-label="add">
             <AddIcon />
           </Fab>
@@ -39,7 +39,7 @@ const AddPrescription = () => {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title"> Create New PreScription</DialogTitle>
+        <DialogTitle id="form-dialog-title"> Create New Medical Record</DialogTitle>
           <DialogContent>
               <NewPrescription/>
             

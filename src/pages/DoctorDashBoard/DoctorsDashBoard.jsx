@@ -24,9 +24,7 @@ const DoctorDashBoard = () => {
       <div className="mainSummaryContainer">
       <Greetings  userName ={user.name}/>
       <AddPrescription/>
-        <Summary name="Newly Created Records" value={5} />
-        <Summary name="Shared with You" value={10} />
-        <Summary name="Pending Approve" value={20} />
+        
         
         
       </div>

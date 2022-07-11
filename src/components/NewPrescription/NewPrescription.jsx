@@ -91,25 +91,125 @@ function  NewPrescription(){
         <div className="newUserItem">
           <TextField
             variant="outlined"
-            label="Drug Description"
-            name="drugDescription"
+            label="BCG"
+            name="bcg"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="POLIO"
+            name="polio"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="DPT"
+            name="dpt"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="HBV"
+            name="hbv"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="Measles"
+            name="measles"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="DT"
+            name="dt"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="COVID"
+            name="covid"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="COVID"
+            name="covid"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="COVID"
+            name="covid"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="WEIGHT"
+            name="weight"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="HEIGHT"
+            name="height"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="MEDICAL DESCRIPTION"
+            name="description"
             required
             fullWidth
             onChange={handleChange}
           />
         </div>
 
-        <div className="newUserItem">
-          {/* <label htmlFor=""> Phone (+263 785 5214)</label> */}
-          <TextField
-            variant="outlined"
-            type="tel"
-            autoComplete="false"
-            onChange={handleChange}
-            label="Quantity Prescribed"
-            name="quantityPrescribed"
-          ></TextField>
-        </div>
+      
         <div className="newUserItem">
         <div className = "selectMaincontainer">
             <Select
@@ -126,7 +226,7 @@ function  NewPrescription(){
         <div className="newUserItem">
           <div className="userButton">
             <Button variant="contained" color="primary" type="submit">
-              Create Prescription
+              Create Medical Record
             </Button>
           </div>
         </div>
