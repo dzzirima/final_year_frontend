@@ -6,6 +6,9 @@ import { Box, typography } from "@mui/system";
 import Task from "../TicketsComponents/components/Task";
 import TaskEdit from "../TicketsComponents/components/TaskEdit";
 import AddIcon from "@mui/icons-material/Add";
+import HeightMonths from "../Charts/HeightMonths";
+import { salesData, salesData2 } from "../Charts/salesData";
+import WeightMonths from "../Charts/WeightMonths";
 
 let tasks = [
   {
@@ -42,94 +45,26 @@ const TicketDetails = () => {
       <div className="ticketTitle">
         <Typography variant="h4">
           
-          Headache <span className="ticketNumber">446687</span>
+          Trent Arnold <span className="ticketNumber">446687</span>
         </Typography>
       </div>
       <div className="ticketCurrentStatus">
-        <Typography> Dr Marley prescribed  This on:22/09/2021 </Typography>
+        <Typography>Growth And Development Chart </Typography>
       </div>
 
-      <div className="mainDetailConatiner">
-        <div className="leftContainer">
-          <div>
-            <div>
-              <button
-                variant="contained"
-                className = "addCommentButton"
-                onClick={() => setShowTaskEdit(!showTaskEdit)}
-              >
-                {!showTaskEdit && " New Comment"}
-                {showTaskEdit && "Close"}
-              </button>
-            </div>
-            {showTaskEdit && <TaskEdit task={{}} onSaveTask={onSaveTask} />}
-          </div>
-          <div className="scrollable">
-            <div className="messagesContainer">
-              {tasks.map((task) => (
-                <div key={task.id}>
-                  <Task task={task} />
-                </div>
-              ))}
-            </div>
-          </div>
+      <div className=",mainDetailConatiner">
+        <div className=",leftContainer">
+        
+        <HeightMonths data = {salesData} title = "Height Development Chart" grid dataKey = "sales"/>
+
+        <hr/>
+        <WeightMonths data = {salesData2} title = "Weight  Development Chart" grid dataKey = "sales"/>
         </div>
-        <div className="rightContainer">
-          <Divider>
-            <Typography variant="subtitle1"> Prescription  Details</Typography>
-          </Divider>
-          <div className="ticketItemContainer">
-            <div className="ticketItemTitle">
-              <Typography variant>Date</Typography>
-            </div>
-            <Box sx={{ m: 2 }}></Box> <Typography>11/01/2021</Typography>
-          </div>
-          <div className="ticketItemContainer">
-            <div className="ticketItemTitle">
-              <Typography variant>Record Number</Typography>
-            </div>
-            <Box sx={{ m: 2 }}></Box> <Typography>TT55YU89</Typography>
-          </div>
-          <div className="ticketItemContainer">
-            <div className="ticketItemTitle">
-              <Typography variant>Status</Typography>
-            </div>
-            <Box sx={{ m: 2 }}></Box> <Typography>shared</Typography>
-          </div>
-          <div className="ticketItemContainer">
-            <div className="ticketItemTitle">
-              <Typography variant>Priority</Typography>
-            </div>
-            <Box sx={{ m: 2 }}></Box> <Typography>High</Typography>
-          </div>
-          <div className="ticketItemContainer">
-            <div className="ticketItemTitle">
-              <Typography variant>Subject</Typography>
-            </div>
-            <Box sx={{ m: 2 }}></Box>
-            <Typography>Lorem ipsum dolor sit amet</Typography>
-          </div>
-          <div className="ticketItemContainer">
-            
-              <div className="ticketItemTitle">
-                <Typography variant>Description</Typography>
-              </div>
-            
-            <Box sx={{ m: 2 }}></Box>
-            <Typography>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
-              numquam culpa repellendus alias odio explicabo ipsam et? Voluptate
-              modi, optio vero quas tenetur reprehenderit odio rerum non maxime
-              corporis sint.
-            </Typography>
-          </div>
-          <div className="ticketItemContainer">
-            <div className="ticketItemTitle">
-              <Typography variant>Prescribed By:</Typography>
-            </div>
-            <Box sx={{ m: 2 }}></Box> <Typography> Dr Nyasha</Typography>
-          </div>
+        <div className=",rightContainer">
+      
+        
         </div>
+        {/* <HeightMonths data = {salesData} title = "Height Development Chart" grid dataKey = "sales2"/> */}
       </div>
     </div>
   );
