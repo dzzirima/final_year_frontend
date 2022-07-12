@@ -13,10 +13,10 @@ const HeightMonths = ({title,data,dataKey,grid}) => {
             <h3 className="chartTitle">{title}</h3>
             <ResponsiveContainer widtg = "100%" aspect = {4/1}>
                 <LineChart data = {data}>
-                    <XAxis dataKey="name"  stroke ="#5550bd" label={{ value: 'Month', angle: 360, position: 'insideLeft', textAnchor: 'bottom' }}/>
+                    <XAxis dataKey="name"  stroke ="#5550bd" label={{ value: 'Height', angle: -90, position: 'insideLeft', textAnchor: 'middle' }}/>
                     <YAxis label={{ value: 'Height', angle: -90, position: 'insideLeft', textAnchor: 'middle' }} />
                     <Line type= "monotone" dataKey = {dataKey} stroke = "#5550bd"/>
-                    <Tooltip/>
+                    {/* <Tooltip/> */}
                     {grid &&<CartesianGrid stroke ="#e0dfdf"/>}
 
                 </LineChart>

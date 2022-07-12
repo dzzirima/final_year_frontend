@@ -16,7 +16,7 @@ const WeightMonths = ({title,data,dataKey,grid}) => {
                     <XAxis dataKey="name"  stroke ="#5550bd" label={{ value: 'Month', angle: 360, position: 'insideLeft', textAnchor: 'bottom' }}/>
                     <YAxis label={{ value: 'Weight', angle: -90, position: 'insideLeft', textAnchor: 'middle' }} />
                     <Line type= "monotone" dataKey = {dataKey} stroke = "#5550bd"/>
-                    <Tooltip/>
+                    
                     {grid &&<CartesianGrid stroke ="#e0dfdf"/>}
 
                 </LineChart>
