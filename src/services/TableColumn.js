@@ -25,16 +25,16 @@ export const tableOptions  = {
  
  export const TicketColumns = [
 
-    {
-      name: "date",
-      label: "Date",
-      print: true,
-      options: {
-        filter: true,
-        print: true,
-        sort: false,
-      },
-    },
+    // {
+    //   name: "date",
+    //   label: "Date",
+    //   print: true,
+    //   options: {
+    //     filter: true,
+    //     print: true,
+    //     sort: false,
+    //   },
+    // },
     {
       name: "bcg",
       label: "BCG",
