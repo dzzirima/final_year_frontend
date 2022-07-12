@@ -9,6 +9,7 @@ import AddIcon from "@mui/icons-material/Add";
 import HeightMonths from "../Charts/HeightMonths";
 import { salesData, salesData2 } from "../Charts/salesData";
 import WeightMonths from "../Charts/WeightMonths";
+import keyImage from "../../images/key.PNG"
 
 let tasks = [
   {
@@ -61,6 +62,8 @@ const TicketDetails = () => {
         <WeightMonths data = {salesData2} title = "Weight  Development Chart" grid dataKey = "sales"/>
         </div>
         <div className=",rightContainer">
+          
+          <img src={keyImage} height = "10"></img>
       
         
         </div>
