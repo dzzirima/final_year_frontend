@@ -62,7 +62,7 @@ export default function GrantAccessContainer({ message, userName }) {
         }}
       >
         <Box sx={{ color: "text.secondary" ,mb:1}}>
-          Share Your Prescription With:
+          Share Your Medical Record:
         </Box>
 
         <Box sx={{ color: "", fontSize: 28, fontWeight: "medium" }}>
