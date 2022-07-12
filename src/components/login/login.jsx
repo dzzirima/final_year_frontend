@@ -62,7 +62,8 @@ export default function SignInSide() {
       if (loginResponce.data.success == 'true') {
     
         let { token, user } = loginResponce.data.data;
-        login(user.email ,user.userId )
+        console.log(user)
+        login(user.email ,user._id )
         console.log(user.role)
 
         //redirect  to respectifull pages

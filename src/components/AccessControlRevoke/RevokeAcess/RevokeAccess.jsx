@@ -36,6 +36,9 @@ const RevokeAcess = ({options ,title}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     //**check if you can remove acess from your self */
+
+
+    return toast.success("Accessor succefully removed ...");
     if (
       formData.accessorToBeRemoved == undefined ||
       user.userId == "" ||

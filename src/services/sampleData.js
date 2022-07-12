@@ -8,7 +8,7 @@ export const sampleTickets = [
         nameofmother:"Gugu Ndlovu",
         physicaladdres:"12 Nkulumane",
         placeofbirth:"DRC",
-        healthcentre:"MedAccess "
+        healthcentre:"EBHC "
 
 
     },
@@ -34,7 +34,7 @@ export const sampleTickets = [
         nameofmother:"ZaneleNdlovu",
         physicaladdres:"Beverly hills",
         placeofbirth:"newyork",
-        healthcentre:"MedAccess "
+        healthcentre:"EBHC "
 
 
     },
@@ -60,7 +60,7 @@ export const sampleTickets = [
         nameofmother:"PreeshaNdlovu",
         physicaladdres:"12 Nkulumane",
         placeofbirth:"DRC",
-        healthcentre:"MedAccess "
+        healthcentre:"EBHC "
 
 
     },

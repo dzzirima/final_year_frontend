@@ -103,6 +103,28 @@ function  NewUser(){
           ></TextField>
         </div>
         <div className="newUserItem">
+          {/* <label htmlFor=""> Phone (+263 785 5214)</label> */}
+          <TextField
+            variant="outlined"
+            type="tel"
+            autoComplete="false"
+            onChange={handleChange}
+            label="Date Of Birth"
+            name="dob"
+          ></TextField>
+        </div>
+        <div className="newUserItem">
+          {/* <label htmlFor=""> Phone (+263 785 5214)</label> */}
+          <TextField
+            variant="outlined"
+            type="tel"
+            autoComplete="false"
+            onChange={handleChange}
+            label="Gender"
+            name="gender"
+          ></TextField>
+        </div>
+        <div className="newUserItem">
           {/* <label htmlFor=""> Address </label> */}
           <TextField
             type="text"

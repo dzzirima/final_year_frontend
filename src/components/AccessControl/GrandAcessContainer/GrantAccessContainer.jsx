@@ -18,7 +18,7 @@ export default function GrantAccessContainer({ message, userName }) {
     let get_all_users = async () => {
       try {
         const getAllUsersResponse = await axiosInstance.get("/auth/getAllUsers");
-        let users = getAllUsersResponse.data.data;
+        let users = getAllUsersResponse.data.data.users;
       
         let customised_users = users.map((user) => {
           let roleInit = "PNT"
@@ -32,7 +32,7 @@ export default function GrantAccessContainer({ message, userName }) {
 
 
           return({
-            value:user.Id,
+            value:user._id,
             label :`${roleInit} `+" "+ user.lastname +" "+user.firstname
            
           })

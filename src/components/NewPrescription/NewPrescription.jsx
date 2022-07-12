@@ -16,7 +16,7 @@ function  NewPrescription(){
 
   const handleSearchChange = (e) => {
      
-    setFormData({ ...formData, "": e.value.trim() });
+    setFormData({ ...formData, "patientId": e.value.trim() });
   
   };
 
@@ -26,6 +26,7 @@ function  NewPrescription(){
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
   
     
    
@@ -166,6 +167,16 @@ function  NewPrescription(){
             variant="outlined"
             label="WEIGHT"
             name="weight"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="HEIGHT"
+            name="height"
             required
             fullWidth
             onChange={handleChange}

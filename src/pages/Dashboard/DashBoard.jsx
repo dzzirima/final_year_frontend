@@ -31,34 +31,15 @@ const DashBoard = () => {
           //   requestor: "6h2ZuwDamb",
           // }
           {
-            userId:user.userId,
+            userId:user,
             requestor:user.userId
           }
 
         );
-
-        let userRecords = getAllUserRecordsResponse.data.data;
-        console.log(userRecords);
-
-        let customise_user_records = userRecords.map((record) => {
-          let myDate = record.collectionDate.hex;
-
-          var dateObjectName = parseInt(myDate, 16);
-          var quantityPrescribed = parseInt(record.quantityPrescribed.hex, 16);
-
-          let mydate = new Date(dateObjectName * 1000);
-          let formatedDate = moment(mydate, "YYYY-MM-DD hh:mm:ss a");
-          // let actualDate = formatedDate.format('llll')
-          let actualDate = formatedDate.fromNow();
-
-          return {
-            ...record,
-            myprescribedDate: actualDate,
-            myquantityPrescribed: quantityPrescribed,
-          };
-        });
-
-        setoptions(customise_user_records);
+        let userRecords = getAllUserRecordsResponse.data.data.records;
+        console.log(userRecords)
+        
+        setoptions(userRecords);
       } catch (error) {
         console.log(error.message);
       }
@@ -90,7 +71,7 @@ const DashBoard = () => {
           <TicketsTable
             columns={columns}
             data={myOptions}
-            title="Newly Created Medical Records"
+            title="Your Records"
           />
         </div>
       </div>
