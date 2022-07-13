@@ -159,6 +159,11 @@ function  NewUser(){
                 control={<Radio />}
                 label="nurse"
               />
+              <FormControlLabel
+                value="admin"
+                control={<Radio />}
+                label="admin"
+              />
             
             </RadioGroup>
           </FormControl>
