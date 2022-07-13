@@ -25,16 +25,36 @@ export const tableOptions  = {
  
  export const TicketColumns = [
 
-    // {
-    //   name: "date",
-    //   label: "Date",
-    //   print: true,
-    //   options: {
-    //     filter: true,
-    //     print: true,
-    //     sort: false,
-    //   },
-    // },
+    {
+      name: "createdAt",
+      label: "Date",
+      print: true,
+      options: {
+        filter: true,
+        print: true,
+        sort: false,
+      },
+    },
+    {
+      name: "_id",
+      label: "RecordId",
+      print: true,
+      options: {
+        filter: true,
+        print: true,
+        sort: false,
+      },
+    },
+    {
+      name: "doctorId",
+      label: "NurseID",
+      print: true,
+      options: {
+        filter: true,
+        print: true,
+        sort: false,
+      },
+    },
     {
       name: "bcg",
       label: "BCG",
@@ -256,20 +276,20 @@ export const tableOptions  = {
         sort: false,
       },
     },
-    {
-      name: "status",
-      label: "Sharing status",
-      print: true,
-      options: {
-        filter: true,
-        sort: true,
-        customBodyRender: (value, tableMeta, updateValue) => (
-          <>
-            <p className={value}>{value}</p>
-          </>
-        ),
-      },
-    },
+    // {
+    //   name: "status",
+    //   label: "Sharing status",
+    //   print: true,
+    //   options: {
+    //     filter: true,
+    //     sort: true,
+    //     customBodyRender: (value, tableMeta, updateValue) => (
+    //       <>
+    //         <p className={value}>{value}</p>
+    //       </>
+    //     ),
+    //   },
+    // },
     {
       name: "recordID",
       label: "Action",

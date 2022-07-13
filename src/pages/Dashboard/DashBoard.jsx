@@ -37,9 +37,20 @@ const DashBoard = () => {
 
         );
         let userRecords = getAllUserRecordsResponse.data.data.records;
-        console.log(userRecords)
+
+        let customisedRecords = userRecords.map((record) =>{
+
+          return({
+            ...record,
+            nurseId:record._id.slice(3,5)+"..."+record._id.slice(1,4)
+          }
+
+          )
+
+        })
+        console.log(customisedRecords)
         
-        setoptions(userRecords);
+        setoptions(customisedRecords);
       } catch (error) {
         console.log(error.message);
       }

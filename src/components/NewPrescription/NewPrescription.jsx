@@ -165,7 +165,7 @@ function  NewPrescription(){
         <div className="newUserItem">
           <TextField
             variant="outlined"
-            label="WEIGHT"
+            label="WEIGHT  (kg)"
             name="weight"
             required
             fullWidth
@@ -175,7 +175,7 @@ function  NewPrescription(){
         <div className="newUserItem">
           <TextField
             variant="outlined"
-            label="HEIGHT"
+            label="HEIGHT (cm)"
             name="height"
             required
             fullWidth
