@@ -159,7 +159,7 @@ export const tableOptions  = {
   export const UserColumns = [
 
     {
-      name: "Id",
+      name: "_id",
       label: "User ID",
       print: true,
       options: {
