@@ -8,6 +8,9 @@ import { toast } from "react-toastify";
 import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
 import Select from "react-select";
 import { useUserContext } from "../../context/userContext";
+
+import { createAndUploadJSONFile } from "../../services/upoloadToPinato";
+// import { uploadMetaDataToPinata } from "../../services/upoloadToPinato";
 function  NewPrescription(){
   const [users, setusers] = useState(options )
   const [formData, setFormData] = useState({});
@@ -25,6 +28,7 @@ function  NewPrescription(){
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+   console.log( createAndUploadJSONFile(formData))
 
 
     return console.log(formData)
