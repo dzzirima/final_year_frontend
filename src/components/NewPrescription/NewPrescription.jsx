@@ -9,7 +9,7 @@ import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, Te
 import Select from "react-select";
 import { useUserContext } from "../../context/userContext";
 function  NewPrescription(){
-  const [users, setusers] = useState()
+  const [users, setusers] = useState(options )
   const [formData, setFormData] = useState({});
   const{user} = useUserContext()
 
@@ -25,6 +25,9 @@ function  NewPrescription(){
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+
+    return console.log(formData)
     
    
     try {

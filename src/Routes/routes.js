@@ -8,11 +8,12 @@ import Settings from "../pages/Settings/Settings";
 import Tickets from "../pages/Tickets/Tickets";
 import Users from "../pages/Users/Users";
 import ProtectedRoute from "../pages/ProtectedPage/Protected";
+import NFTLogin from "../components/login/NFTLogin";
 
 export   const routes = [
   {
     path: "/",
-    component:<SignInSide/>
+    component:<NFTLogin/>
     
   },
     {
