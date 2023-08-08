@@ -51,7 +51,7 @@ export const sampleUsers = [
 
 export const users = [
     { value: "0x9665170f3789a48616987cc0c2BFFAa8F6e0A3F4", label: "DR John" },
-    { value: "Praise", label: "PHM Praise" },
+    { value: "0x738CeBbB3aA58e1b5255D64fc6ad60dBC98920b5", label: "PNT Praise" },
     { value: "Nyasha", label: "DR Nyasha" },
     { value: "Munya", label: "DR Munya" },
   ];

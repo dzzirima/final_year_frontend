@@ -5,14 +5,14 @@ import myABI from "../../utils/ABI.json"
 
 import twitterLogo from '../../assets/twitter-logo.svg';
 import React, { useEffect, useState } from "react";
-import NFTCard from '../NFTCard/NFTCards';
+import { CONTRACT_ADDRESS } from '../../utils/myconstant';
 
 // Constants
 const TWITTER_HANDLE = 'blackmhofu';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 const OPENSEA_LINK = '';
 const TOTAL_MINT_COUNT = 50;
-const CONTRACT_ADDRESS = "0xa8Bb9F8eD5284c5D11952ceAc73FEF7A15fB340d";
+// const CONTRACT_ADDRESS = "0xa8Bb9F8eD5284c5D11952ceAc73FEF7A15fB340d";
 
 const NFTLogin = () => {
   /*
@@ -132,7 +132,7 @@ const hasMintedNFT = async () => {
       const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myABI.abi, signer);
 
  
-      let nftTxn = await connectedContract.hasMintedNFT();
+      let nftTxn = await connectedContract.hasMintedNFT('0x9665170f3789a48616987cc0c2BFFAa8F6e0A3F4');
 
       console.log("Mining...please wait.")
   
@@ -294,7 +294,9 @@ const upDateTokenUrl = async () => {
             // <NFTCard/>
             // </div>
             // history.push("/patient")
-             <div></div>
+            <>
+            <h1>d</h1>
+            </>
           )
         }
        

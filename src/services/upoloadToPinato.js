@@ -16,6 +16,8 @@ const FormData = require('form-data');
       age: 30,
       email: 'johndoe@example.com'
     };
+
+    
   
     // Convert the JSON data to a string
     const jsonString = JSON.stringify(myData);
@@ -48,13 +50,15 @@ const FormData = require('form-data');
         console.log('File uploaded successfully to Pinata!');
         console.log('IPFS hash:', data.IpfsHash);
         let url = 'https://gateway.pinata.cloud/ipfs/'+data.IpfsHash
-        console.log(url)
+        // console.log(url)
         return  url
       } else {
         console.log('File upload failed. Error:', data.error);
+        return false;
       }
     } catch (error) {
       console.log('Error occurred:', error.response.data);
+      return false;
     }
   };
   
