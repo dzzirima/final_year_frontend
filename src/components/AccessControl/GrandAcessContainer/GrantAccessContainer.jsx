@@ -8,11 +8,15 @@ import GrantAccess from "../GrantAccess/GrantAccess";
 
 import { useEffect, useState } from "react";
 import axiosInstance from "../../../services/Axios"
+import { sampleUsers  } from "../../../services/sampleData";
+import { users as myUsers  } from "../../../services/sampleData";
+
 
 export default function GrantAccessContainer({ message, userName }) {
   const time = useTime();
 
-  const [users, setusers] = useState()
+  const [users, setusers] = useState(myUsers)
+
 
   useEffect(() => {
     let get_all_users = async () => {
@@ -47,7 +51,7 @@ export default function GrantAccessContainer({ message, userName }) {
         console.log(error.message);
       }
     };
-    get_all_users();   
+    // get_all_users();   
   }, [])
   
   return (

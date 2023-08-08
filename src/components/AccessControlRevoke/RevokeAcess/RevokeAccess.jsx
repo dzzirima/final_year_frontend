@@ -41,7 +41,7 @@ const RevokeAcess = ({options ,title}) => {
       user.userId == "" ||
       formData.accessorToBeRemoved == user.userId
     ) {
-      toast.error("Error while Granting access , you need to log in....");
+     
       return;
     }
     

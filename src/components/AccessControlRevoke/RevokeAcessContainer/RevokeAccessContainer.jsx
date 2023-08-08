@@ -7,10 +7,12 @@ import { useTime } from "../../../CustomeHooks/useGeetings";
 import RevokeAccess from "../RevokeAcess/RevokeAccess";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../../services/Axios"
+import { sampleUsers , users as myUsers } from "../../../services/sampleData";
+
 
 export default function RevokeAccessContainer({ message, userName }) {
   const time = useTime();
-  const [users, setusers] = useState()
+  const [users, setusers] = useState(myUsers)
 
   useEffect(() => {
     let get_all_users = async () => {
@@ -45,7 +47,7 @@ export default function RevokeAccessContainer({ message, userName }) {
         console.log(error.message);
       }
     };
-    get_all_users();   
+    // get_all_users();   
   }, [])
   
   return (
