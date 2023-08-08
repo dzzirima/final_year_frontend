@@ -4,66 +4,168 @@ import Summary from "../../components/Summary/Summary";
 import TicketsTable from "../../components/TicketsTable/TicketsTable";
 import "./index.css";
 import SecurityIcon from "@mui/icons-material/Security";
-import { TicketColumns as columns } from "../../services/TableColumn";
-import { sampleTickets as data } from "../../services/sampleData";
 import Greetings from "../../components/Greetings/Greetings";
 import { useUserContext } from "../../context/userContext";
 import TopBar from "../../components/TopBar/TopBar";
-import axiosInstance from "../../services/Axios";
+
 import moment from "moment";
 import GrantAccess from "../../components/AccessControl/GrantAccess/GrantAccess";
 import GrantAccessContainer from "../../components/AccessControl/GrandAcessContainer/GrantAccessContainer";
 import RevokeAccessContainer from "../../components/AccessControlRevoke/RevokeAcessContainer/RevokeAccessContainer";
+import { ethers } from "ethers";
+import myABI from "../../utils/ABI.json"
+import { CONTRACT_ADDRESS } from "../../utils/myconstant";
+import NFTCard from "../../components/NFTCard/NFTCards";
+import axios from "axios";
 
 const DashBoard = () => {
   const [cost, setcost] = useState(0);
-  const [myOptions, setoptions] = useState();
+  const [nftData, setNftData] = useState([]);
   const { user } = useUserContext();
+  const [currentAccount, setCurrentAccount] = useState("");
+
+  const checkIfWalletIsConnected = async () => {
+    const { ethereum } = window;
+  
+    if (!ethereum) {
+        console.log("Make sure you have metamask!");
+        return;
+    } else {
+        console.log("We have the ethereum object", ethereum);
+    }
+  
+    /*
+    * Check if we're authorized to access the user's wallet
+    */
+    const accounts = await ethereum.request({ method: 'eth_accounts' });
+  
+    /*
+    * User can have multiple authorized accounts, we grab the first one if its there!
+    */
+    if (accounts.length !== 0) {
+      const account = accounts[0];
+      console.log("Found an authorized account:", account);
+      setCurrentAccount(account);
+    } else {
+      console.log("No authorized account found");
+    }
+    
+  }
+  const connectWallet = async () => {
+    try {
+      const { ethereum } = window;
+  
+      if (!ethereum) {
+        alert("Get MetaMask!");
+        return;
+      }
+  
+      /*
+      * Fancy method to request access to account.
+      */
+      const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+  
+      /*
+      * Boom! This should print out public address once we authorize Metamask.
+      */
+      console.log("Connected", accounts[0]);
+      setCurrentAccount(accounts[0]); 
+    } catch (error) {
+      console.log(error);
+    }
+  }  
+
+
+
+  const getTokenUrl = async (tokenId) => {
+    try {
+      const { ethereum } = window;
+  
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myABI.abi, signer);
+  
+        let nftTxn = await connectedContract.tokenURI(tokenId);
+      
+        return nftTxn
+      
+      } else {
+        console.log("Ethereum object doesn't exist!");
+        return false
+      }
+    } catch (error) {
+      console.log(error)
+      return false
+    }
+  }
+
+   // function to get all the tokens by the user
+const getTokensByUser = async (userId) => {
+  try {
+    const { ethereum } = window;
+
+    if (ethereum) {
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+      const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myABI.abi, signer);
+      let nftTxn = await connectedContract.getTokensByUser(userId);
+      return nftTxn
+    } else {
+      console.log("Ethereum object doesn't exist!");
+      return false;
+    }
+  } catch (error) {
+    console.log(error)
+    return false;
+  }
+}
 
   useEffect(() => {
-    let get_all_user_records = async () => {
+    let get_user_token_id_and_token_metadata = async () => {
       try {
-        const getAllUserRecordsResponse = await axiosInstance.post(
-          "/records/getAllUserRecords",
-          // {
-          //   userId: "6h2ZuwDamb",
-          //   requestor: "6h2ZuwDamb",
-          // }
-          {
-            userId:user.userId,
-            requestor:user.userId
-          }
 
-        );
+        if(currentAccount !== ''){
+          let userTokenId =  await getTokensByUser(currentAccount)
+          const intUserToken  = parseInt(userTokenId[0]);
+          let tokenDataUrl = await getTokenUrl(intUserToken)
+          let currentNFTData = await axios.get(`${tokenDataUrl}`)
+          let arrayOfData = currentNFTData.data
+          setNftData(arrayOfData)
 
-        let userRecords = getAllUserRecordsResponse.data.data;
-        console.log(userRecords);
 
-        let customise_user_records = userRecords.map((record) => {
-          let myDate = record.collectionDate.hex;
+        }
 
-          var dateObjectName = parseInt(myDate, 16);
-          var quantityPrescribed = parseInt(record.quantityPrescribed.hex, 16);
+        // let userRecords = getAllUserRecordsResponse.data.data;
+        // console.log(userRecords);
 
-          let mydate = new Date(dateObjectName * 1000);
-          let formatedDate = moment(mydate, "YYYY-MM-DD hh:mm:ss a");
-          // let actualDate = formatedDate.format('llll')
-          let actualDate = formatedDate.fromNow();
+        // let customise_user_records = userRecords.map((record) => {
+        //   let myDate = record.collectionDate.hex;
 
-          return {
-            ...record,
-            myprescribedDate: actualDate,
-            myquantityPrescribed: quantityPrescribed,
-          };
-        });
+        //   var dateObjectName = parseInt(myDate, 16);
+        //   var quantityPrescribed = parseInt(record.quantityPrescribed.hex, 16);
 
-        setoptions(customise_user_records);
+        //   let mydate = new Date(dateObjectName * 1000);
+        //   let formatedDate = moment(mydate, "YYYY-MM-DD hh:mm:ss a");
+        //   // let actualDate = formatedDate.format('llll')
+        //   let actualDate = formatedDate.fromNow();
+
+        //   return {
+        //     ...record,
+        //     myprescribedDate: actualDate,
+        //     myquantityPrescribed: quantityPrescribed,
+        //   };
+        // });
+
+        // setoptions(customise_user_records);
       } catch (error) {
         console.log(error.message);
       }
     };
-    get_all_user_records();
-  }, []);
+    // get_all_user_records();
+    checkIfWalletIsConnected() ;
+    get_user_token_id_and_token_metadata()
+  }, [currentAccount]);
 
   return (
     <>
@@ -71,7 +173,7 @@ const DashBoard = () => {
 
       <div className="mainDashBoard">
         <div className="mainSummaryContainer">
-          <Greetings userName={user.name} />
+          <Greetings userName={currentAccount} />
           <GrantAccessContainer />
           <RevokeAccessContainer />
 
@@ -86,11 +188,10 @@ const DashBoard = () => {
           </Typography>{" "}
         </Divider>
         <div>
-          <TicketsTable
-            columns={columns}
-            data={myOptions}
-            title="Newly Created Medical Records"
-          />
+          
+            {nftData.map((item, index) => (
+              <div key={index}> <NFTCard/></div>
+            ))}
         </div>
       </div>
     </>
