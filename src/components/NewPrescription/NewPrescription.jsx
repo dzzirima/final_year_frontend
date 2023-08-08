@@ -126,6 +126,7 @@ const getTokenUrl = async (tokenId) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let currentDate = new Date()
 
    let hasMinted =  await hasMintedNFT(formData.patientId)
 
@@ -137,7 +138,16 @@ const getTokenUrl = async (tokenId) => {
    const intUserToken  = parseInt(userTokenId[0]);
    let tokenDataUrl = await getTokenUrl(intUserToken)
 //doing an http to get the data
-let currentNFTData = await axios.get(`${tokenDataUrl}`)
+
+console.log(".................................")
+let currentNFTData = await fetch('/QmZK1EKvZ3y6d7q5ipNB1B5UnLtsv5s8m2PEKhYWqBCWTq')
+// let currentNFTData = await axios.get(`${tokenDataUrl}`, {
+//   headers: {
+//     'Access-Control-Allow-Origin': '*',
+//     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+//     'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+//   }
+// });
 
 let arrayOfData = currentNFTData.data
 console.log("from web")
@@ -149,17 +159,22 @@ console.log(formData)
 
 let formDataFormated;
 
+let formDataWithDate = {
+  "txnDate": new Date(),
+  ...formData
+}
+
 
 if(arrayOfData.length <=0 ){
   // its  the first time someone is doing it
   formDataFormated  = [
-    formData
+    formDataWithDate
    ]
 
 }else{
   //already there is something in the array
   formDataFormated = [
-    formData,
+    formDataWithDate,
     ...arrayOfData
   ]
 
@@ -186,8 +201,18 @@ console.log("addition")
         <div className="newUserItem">
           <TextField
             variant="outlined"
-            label="Drug Description"
-            name="drugDescription"
+            label="Blood Pressure"
+            name="bloodPressure"
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <TextField
+            variant="outlined"
+            label="Weight"
+            name="weight"
             required
             fullWidth
             onChange={handleChange}
@@ -201,8 +226,8 @@ console.log("addition")
             type="tel"
             autoComplete="false"
             onChange={handleChange}
-            label="Quantity Prescribed"
-            name="quantityPrescribed"
+            label="Fetal Growth"
+            name="fetalGrowth"
           ></TextField>
         </div>
         <div className="newUserItem">
@@ -221,7 +246,7 @@ console.log("addition")
         <div className="newUserItem">
           <div className="userButton">
             <Button variant="contained" color="primary" type="submit">
-              Create Prescription
+              Save Data
             </Button>
           </div>
         </div>

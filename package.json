@@ -2,6 +2,7 @@
   "name": "helpdeskfrontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://gateway.pinata.cloud/ipfs",
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
@@ -9,10 +10,12 @@
     "@material-ui/icons": "^4.11.2",
     "@mui/icons-material": "^5.0.1",
     "@mui/material": "^5.0.2",
+    "@pinata/sdk": "^2.1.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
+    "ethers": "^5.4.7",
     "material-table": "^1.69.3",
     "moment": "^2.29.2",
     "mui-datatables": "^3.7.8",
@@ -22,8 +25,7 @@
     "react-scripts": "4.0.3",
     "react-select": "^5.1.0",
     "react-toastify": "^8.0.3",
-    "web-vitals": "^1.1.2",
-    "ethers": "^5.4.7"
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

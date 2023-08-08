@@ -5,7 +5,7 @@ import myABI from "../../utils/ABI.json"
 
 import twitterLogo from '../../assets/twitter-logo.svg';
 import React, { useEffect, useState } from "react";
-import { CONTRACT_ADDRESS } from '../../utils/myconstant';
+import { BASE_MINT_URL, CONTRACT_ADDRESS } from '../../utils/myconstant';
 
 // Constants
 const TWITTER_HANDLE = 'blackmhofu';
@@ -107,7 +107,7 @@ const askContractToMintNft = async () => {
       });
 
       console.log("Going to pop wallet now to pay gas...")
-      let nftTxn = await connectedContract.mintNFT(currentAccount,"this is the url");
+      let nftTxn = await connectedContract.mintNFT(currentAccount,BASE_MINT_URL);
 
       console.log("Mining...please wait.")
       await nftTxn.wait();
@@ -132,7 +132,7 @@ const hasMintedNFT = async () => {
       const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myABI.abi, signer);
 
  
-      let nftTxn = await connectedContract.hasMintedNFT('0x9665170f3789a48616987cc0c2BFFAa8F6e0A3F4');
+      let nftTxn = await connectedContract.hasMintedNFT(currentAccount);
 
       console.log("Mining...please wait.")
   
