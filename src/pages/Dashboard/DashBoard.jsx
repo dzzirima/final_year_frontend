@@ -14,7 +14,7 @@ import GrantAccessContainer from "../../components/AccessControl/GrandAcessConta
 import RevokeAccessContainer from "../../components/AccessControlRevoke/RevokeAcessContainer/RevokeAccessContainer";
 import { ethers } from "ethers";
 import myABI from "../../utils/ABI.json"
-import { CONTRACT_ADDRESS } from "../../utils/myconstant";
+import { CONTRACT_ADDRESS, preserveReplaceLast } from "../../utils/myconstant";
 import NFTCard from "../../components/NFTCard/NFTCards";
 import axios from "axios";
 
@@ -173,7 +173,7 @@ const getTokensByUser = async (userId) => {
 
       <div className="mainDashBoard">
         <div className="mainSummaryContainer">
-          <Greetings userName={currentAccount} />
+          <Greetings userName={preserveReplaceLast(currentAccount)} />
           <GrantAccessContainer />
           <RevokeAccessContainer />
 
@@ -187,7 +187,7 @@ const getTokensByUser = async (userId) => {
             <SecurityIcon color="primary" />{" "}
           </Typography>{" "}
         </Divider>
-        <div>
+        <div className="prenatalCard">
           
             {nftData.map((item, index) => (
               <div key={index}> <NFTCard/></div>
