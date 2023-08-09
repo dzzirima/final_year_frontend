@@ -132,30 +132,8 @@ const getTokensByUser = async (userId) => {
           let currentNFTData = await axios.get(`${tokenDataUrl}`)
           let arrayOfData = currentNFTData.data
           setNftData(arrayOfData)
-
-
         }
 
-        // let userRecords = getAllUserRecordsResponse.data.data;
-        // console.log(userRecords);
-
-        // let customise_user_records = userRecords.map((record) => {
-        //   let myDate = record.collectionDate.hex;
-
-        //   var dateObjectName = parseInt(myDate, 16);
-        //   var quantityPrescribed = parseInt(record.quantityPrescribed.hex, 16);
-
-        //   let mydate = new Date(dateObjectName * 1000);
-        //   let formatedDate = moment(mydate, "YYYY-MM-DD hh:mm:ss a");
-        //   // let actualDate = formatedDate.format('llll')
-        //   let actualDate = formatedDate.fromNow();
-
-        //   return {
-        //     ...record,
-        //     myprescribedDate: actualDate,
-        //     myquantityPrescribed: quantityPrescribed,
-        //   };
-        // });
 
         // setoptions(customise_user_records);
       } catch (error) {
@@ -190,7 +168,7 @@ const getTokensByUser = async (userId) => {
         <div className="prenatalCard">
           
             {nftData.map((item, index) => (
-              <div key={index}> <NFTCard/></div>
+              <div key={index}> <NFTCard nft = {item}/></div>
             ))}
         </div>
       </div>

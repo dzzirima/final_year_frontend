@@ -112,36 +112,7 @@ const checkIfWalletIsConnected = async () => {
       toast.error("Error while Granting access , you need to log in....");
     }
 
-    // //**check if you can remove acess from your self */
-    // if (
-    //   formData.accessor == undefined ||
-    //   user.userId == "" ||
-    //   formData.accessor == user.userId
-    // ) {
-    //   toast.error("Error while Granting access , you need to log in....");
-    //   return;
-    // }
 
-    // try {
-    //   let response = await axiosInstance.post("/accessors/grantAccess", {
-    //     ...formData,
-    //     userId: user.userId,
-    //   });
-    //   if (response) {
-    //     let success = response.data.success;
-    //     console.log(response.data);
-
-    //     if (success === true) {
-    //       toast.success("Accessor Successfully added....");
-    //     } else {
-    //       toast.error("Error in adding accessor ......");
-    //       toast.info(`${response.data.message}`);
-    //     }
-    //     // check
-    //   }
-    // } catch (error) {
-    //   toast.error(`${error.message}`, { variant: "error" });
-    // }
   };
 
   useEffect(() => {

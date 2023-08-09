@@ -13,11 +13,67 @@ import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import { useUserContext } from "../../../context/userContext";
 import { toast } from "react-toastify";
 import axiosInstance from "../../../services/Axios"
+import { ethers } from "ethers";
+import { CONTRACT_ADDRESS } from "../../../utils/myconstant";
+import myABI from "../../../utils/ABI.json"
+import { useEffect } from "react";
 
 
 const RevokeAcess = ({options ,title}) => {
   const{user} = useUserContext()
   const [formData, setFormData] = useState({});
+  const [currentAccount, setCurrentAccount] = useState("");
+
+  const revokeAccesss = async (accessorAddress) => {
+    try {
+      const { ethereum } = window;
+  
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myABI.abi, signer);
+  
+   
+        let nftTxn = await connectedContract.removeAccessor(accessorAddress);
+        return true;
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      
+      console.log(error)
+      return false;
+    }
+  }
+  const checkIfWalletIsConnected = async () => {
+    const { ethereum } = window;
+  
+    if (!ethereum) {
+        console.log("Make sure you have metamask!");
+        return;
+    } else {
+        console.log("We have the ethereum object", ethereum);
+    }
+  
+    /*
+    * Check if we're authorized to access the user's wallet
+    */
+    const accounts = await ethereum.request({ method: 'eth_accounts' });
+  
+    /*
+    * User can have multiple authorized accounts, we grab the first one if its there!
+    */
+    if (accounts.length !== 0) {
+      const account = accounts[0];
+      console.log("Found an authorized account:", account);
+      setCurrentAccount(account);
+    } else {
+      console.log("No authorized account found");
+    }
+    
+  }
+  
+
 
   const handleSearchChange = (e) => {
 
@@ -34,48 +90,36 @@ const RevokeAcess = ({options ,title}) => {
     setOpen(false);
   };
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    //**check if you can remove acess from your self */
-    if (
-      formData.accessorToBeRemoved == undefined ||
-      user.userId == "" ||
-      formData.accessorToBeRemoved == user.userId
-    ) {
-     
-      return;
-    }
-    
 
+    e.preventDefault();
 
     try {
-      let response = await axiosInstance.post("/accessors/revokeAccess", {
-        ...formData,
-        userId: user.userId,
-      });
-      if (response) {
-        let success = response.data.success;
-        console.log(response.data);
+      console.log("current Account"+currentAccount)
+      console.log( formData.accessorToBeRemoved )
 
-        if (success === true) {
-          toast.success("Accessor succefully removed ...");
-        } else {
-          toast.error("Error in removing the accessor ");
-          toast.info(`${response.data.message}`);
-        }
-        // check
+      let removeAccessRes = await revokeAccesss(formData.accessorToBeRemoved)
+
+      console.log(removeAccessRes)
+
+      if(removeAccessRes ==true){
+        toast.success(" accesor removed succeffully ");
+       
+      }else{
+        toast.error("Error while removing the accessor");
+
       }
+      
     } catch (error) {
-      toast.error(`${error.message}`, { variant: "error" });
+      toast.error("Error while Granting access , you need to log in....");
     }
 
-    //**check if you can remove acess from your self */
-    if(formData.accessorToBeRemoved == undefined ||user.userId == '' || formData.accessor == user.userId){
-      toast.error("Error while Granting access , you need to log in....")
-      return;
-    } 
-    console.log(formData.accessorToBeRemoved)
-    console.log({...formData ,userId:user.userId});
   };
+  useEffect(() => {
+
+    checkIfWalletIsConnected()
+   }, [])
+   
+
 
   return (
     <div>

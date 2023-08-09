@@ -12,15 +12,24 @@ import { red } from '@mui/material/colors';
 import * as React from 'react';
 
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import moment from 'moment';
 
 
 
-export default function NFTCard() {
+export default function NFTCard(props) {
 //   const [expanded, setExpanded] = React.useState(false);
 
 //   const handleExpandClick = () => {
 //     setExpanded(!expanded);
 //   };
+
+let mydate = new Date(props.nft.txnDate);
+let formatedDate = moment(mydate, "YYYY-MM-DD hh:mm:ss a");
+        // let actualDate = formatedDate.format('llll')
+        // let actualDate = formatedDate.fromNow();
+let actualDate = formatedDate.format("d MMM YYYY HH:mm")
+
+
 
   return (
     <Card sx={{ maxWidth: 345 , margin: 1 }}>
@@ -36,7 +45,8 @@ export default function NFTCard() {
           </IconButton>
         }
         title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        // subheader="September 14, 2016"
+        subheader= { actualDate}
       />
       <CardMedia
         component="img"
@@ -50,6 +60,8 @@ export default function NFTCard() {
           together with your guests. Add 1 cup of frozen peas along with the mussels,
           if you like.
         </Typography>
+
+        
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites" aria-labelledby ="chickck">

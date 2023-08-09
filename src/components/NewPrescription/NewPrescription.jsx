@@ -123,6 +123,10 @@ const getTokenUrl = async (tokenId) => {
     setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
   };
   const handleSubmit = async (e) => {
+
+    try {
+      
+   
     e.preventDefault();
     let currentDate = new Date()
 
@@ -138,6 +142,7 @@ const getTokenUrl = async (tokenId) => {
 //doing an http to get the data
 
 var pathname = new URL(tokenDataUrl).pathname;
+console.log(tokenDataUrl)
 let currentNFTData = await axios.get(pathname)
 let arrayOfData = currentNFTData.data
 console.log("from web")
@@ -180,6 +185,10 @@ console.log("addition")
   tokenDataUrl = await getTokenUrl(intUserToken)
 
   console.log("New token Url "+tokenDataUrl)
+} catch (error) {
+  toast.error("Error while  accesssing this user documents");
+      
+}
 
   
     
