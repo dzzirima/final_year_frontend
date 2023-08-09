@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from "react";
-import "./index.css";
+import React, { useState } from "react";
 import { users as options } from "../../services/sampleData";
-import axiosInstance  from "../../services/Axios"
-import myABI from "../../utils/ABI.json"
+import myABI from "../../utils/ABI.json";
+import "./index.css";
 
 import { toast } from "react-toastify";
 
-import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import Select from "react-select";
 import { useUserContext } from "../../context/userContext";
 
+import axios from "axios";
+import { ethers } from "ethers";
 import { createAndUploadJSONFile } from "../../services/upoloadToPinato";
 import { CONTRACT_ADDRESS } from "../../utils/myconstant";
-import { ethers } from "ethers";
-import axios from "axios";
+
 // import { uploadMetaDataToPinata } from "../../services/upoloadToPinato";
 function  NewPrescription(){
   const [users, setusers] = useState(options )
   const [formData, setFormData] = useState({});
   const{user} = useUserContext()
-
-
 
   // function to get all the tokens by the user
 const getTokensByUser = async (userId) => {
@@ -139,16 +137,8 @@ const getTokenUrl = async (tokenId) => {
    let tokenDataUrl = await getTokenUrl(intUserToken)
 //doing an http to get the data
 
-console.log(".................................")
-let currentNFTData = await fetch('/QmZK1EKvZ3y6d7q5ipNB1B5UnLtsv5s8m2PEKhYWqBCWTq')
-// let currentNFTData = await axios.get(`${tokenDataUrl}`, {
-//   headers: {
-//     'Access-Control-Allow-Origin': '*',
-//     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-//     'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-//   }
-// });
-
+var pathname = new URL(tokenDataUrl).pathname;
+let currentNFTData = await axios.get(pathname)
 let arrayOfData = currentNFTData.data
 console.log("from web")
 console.log(arrayOfData)
