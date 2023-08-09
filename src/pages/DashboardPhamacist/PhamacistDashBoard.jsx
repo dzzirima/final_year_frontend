@@ -14,66 +14,120 @@ import Select from "react-select";
 import SearchIcon from "@mui/icons-material/Search";
 import axiosInstance from "../../services/Axios";
 import { toast } from "react-toastify";
+import { users as myUsers  } from "../../services/sampleData";
 import moment from "moment";
+import { CONTRACT_ADDRESS } from "../../utils/myconstant";
+import myABI from "../../utils/ABI.json"
+import { ethers } from "ethers";
+import axios from "axios";
+import NFTCard from "../../components/NFTCard/NFTCards";
 
 const PhamacistDashBoard = () => {
-  const [cost, setcost] = useState(0);
+ 
   const { user } = useUserContext();
   const [formData, setFormData] = useState({});
-  const [users, setusers] = useState();
+  const [users, setusers] = useState(myUsers);
   const [myOptions, setoptions] = useState();
+  const [currentAccount, setCurrentAccount] = useState("");
+  const [nftData, setNftData] = useState([]);
+
+  const getTokensByUser = async (userId) => {
+    try {
+      const { ethereum } = window;
+  
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myABI.abi, signer);
+        let nftTxn = await connectedContract.getTokensByUser(userId);
+        return nftTxn
+      } else {
+        console.log("Ethereum object doesn't exist!");
+        return false;
+      }
+    } catch (error) {
+      console.log(error)
+      return false;
+    }
+  }
+  const getTokenUrl = async (tokenId) => {
+    try {
+      const { ethereum } = window;
+  
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myABI.abi, signer);
+  
+        let nftTxn = await connectedContract.tokenURI(tokenId);
+      
+        return nftTxn
+      
+      } else {
+        console.log("Ethereum object doesn't exist!");
+        return false
+      }
+    } catch (error) {
+      console.log(error)
+      return false
+    }
+  }
+
+  
+
+
+  const checkIfWalletIsConnected = async () => {
+    const { ethereum } = window;
+  
+    if (!ethereum) {
+        console.log("Make sure you have metamask!");
+        return;
+    } else {
+        console.log("We have the ethereum object", ethereum);
+    }
+  
+    /*
+    * Check if we're authorized to access the user's wallet
+    */
+    const accounts = await ethereum.request({ method: 'eth_accounts' });
+  
+    /*
+    * User can have multiple authorized accounts, we grab the first one if its there!
+    */
+    if (accounts.length !== 0) {
+      const account = accounts[0];
+      console.log("Found an authorized account:", account);
+      setCurrentAccount(account);
+    } else {
+      console.log("No authorized account found");
+    }
+    
+  }
 
   const handleSearchChange = (e) => {
-    setFormData({ userId: e.value.trim() });
+    setFormData({ userId: e.value.trim()});
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     /** some basic checks if someone is looged in */
 
-    if (formData.userId == undefined || user.userId == "") {
-      toast.error(
-        "Login to your account to view Patients records Or Select the Patient to view"
-      );
-      return;
-    }
+setNftData([])
 
-    try {
-      const getAllUserRecordsResponse = await axiosInstance.post(
-        "/records/getAllUserRecords",
-        // {
-        //   userId:"6h2ZuwDamb",
-        //   requestor:"6h2ZuwDamb"
-        // }
-        {
-          userId: formData.userId,
-          requestor: user.userId,
-        }
-      );
 
-      let userRecords = getAllUserRecordsResponse.data.data;
-      
-
-      let customise_user_records = userRecords.map((record) => {
-        let myDate = record.collectionDate.hex;
-
-        var dateObjectName = parseInt(myDate, 16);
-        var quantityPrescribed = parseInt(record.quantityPrescribed.hex, 16);
-
-        let mydate = new Date(dateObjectName * 1000);
-        let formatedDate = moment(mydate, "YYYY-MM-DD hh:mm:ss a");
-        // let actualDate = formatedDate.format('llll')
-        // let actualDate = formatedDate.fromNow();
-        let actualDate = formatedDate.format("d MMM YYYY HH:mm")
-
-        return {
-          ...record,
-          myprescribedDate: actualDate,
-          myquantityPrescribed: quantityPrescribed,
-        };
-      });
-      console.log(customise_user_records)
-      setoptions(customise_user_records);
+    // return console.log(formData ,currentAccount)
+    try{
+      let userTokenId =  await getTokensByUser(formData.userId)
+      const intUserToken  = parseInt(userTokenId[0]);
+      let tokenDataUrl = await getTokenUrl(intUserToken)
+  
+      var pathname = new URL(tokenDataUrl).pathname;
+  
+  let currentNFTData = await axios.get(pathname)
+  let arrayOfData = currentNFTData.data
+  
+  setNftData(arrayOfData)
+ 
     } catch (error) {
       console.log(error)
       toast.info("Unfortunately you dont have access to this users medical")
@@ -82,35 +136,7 @@ const PhamacistDashBoard = () => {
   };
 
   useEffect(() => {
-    let get_all_users = async () => {
-      try {
-        const getAllUsersResponse = await axiosInstance.get(
-          "/auth/getAllUsers"
-        );
-        let users = getAllUsersResponse.data.data;
-
-        let customised_users = users.map((user) => {
-          let roleInit = "PNT";
-
-          if (user.role === "doctor") {
-            roleInit = "DR";
-          }
-          if (user.role === "phamacist") {
-            roleInit = "PMCY";
-          }
-
-          return {
-            value: user.Id,
-            label: `${roleInit} ` + " " + user.lastname + " " + user.firstname,
-          };
-        });
-
-        setusers(customised_users);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    get_all_users();
+    checkIfWalletIsConnected()
   }, []);
 
   return (
@@ -152,12 +178,11 @@ const PhamacistDashBoard = () => {
             <SecurityIcon color="primary" />{" "}
           </Typography>{" "}
         </Divider>
-        <div>
-          <TicketsTable
-            columns={columns}
-            data={myOptions}
-            title="Your Patients Prescriptions Recent Activity"
-          />
+        <div className="prenatalCard">
+          
+            {nftData.map((item, index) => (
+              <div key={index}> <NFTCard nft = {item}/></div>
+            ))}
         </div>
       </div>
     </>

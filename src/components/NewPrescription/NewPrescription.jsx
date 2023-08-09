@@ -189,9 +189,7 @@ console.log("addition")
   toast.error("Error while  accesssing this user documents");
       
 }
-
   
-    
   };
   return (
     <div className="newUser">

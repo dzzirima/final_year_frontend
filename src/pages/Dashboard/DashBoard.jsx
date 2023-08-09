@@ -129,12 +129,14 @@ const getTokensByUser = async (userId) => {
           let userTokenId =  await getTokensByUser(currentAccount)
           const intUserToken  = parseInt(userTokenId[0]);
           let tokenDataUrl = await getTokenUrl(intUserToken)
-          let currentNFTData = await axios.get(`${tokenDataUrl}`)
+
+          var pathname = new URL(tokenDataUrl).pathname;
+
+          let currentNFTData = await axios.get(pathname)
+          // let currentNFTData = await axios.get(`${tokenDataUrl}`)
           let arrayOfData = currentNFTData.data
           setNftData(arrayOfData)
         }
-
-
         // setoptions(customise_user_records);
       } catch (error) {
         console.log(error.message);
